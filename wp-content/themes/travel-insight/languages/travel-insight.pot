@@ -1,0 +1,1413 @@
+# <!=Copyright (C) 2018 Theme Palace
+# This file is distributed under the GNU General Public License v3 or later.=!>
+msgid ""
+msgstr ""
+"Project-Id-Version: Travel Insight 0.0.3\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
+"POT-Creation-Date: 2018-06-27 08:46:18+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: grunt-wp-i18n1.0.0\n"
+
+#: 404.php:21 inc/helpers.php:423
+msgid "404"
+msgstr ""
+
+#: 404.php:22
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: 404.php:26
+msgid ""
+"It looks like nothing was found at this location. Maybe try one of the "
+"links below or a search?"
+msgstr ""
+
+#: comments.php:54 comments.php:76
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:57 comments.php:79
+msgid "Older Comments"
+msgstr ""
+
+#: comments.php:58 comments.php:80
+msgid "Newer Comments"
+msgstr ""
+
+#: comments.php:93
+msgid "Comments are closed."
+msgstr ""
+
+#: functions.php:52
+msgid "Primary"
+msgstr ""
+
+#: functions.php:53
+msgid "Social"
+msgstr ""
+
+#: functions.php:54
+msgid "Footer"
+msgstr ""
+
+#: functions.php:195
+msgid "expand child menu"
+msgstr ""
+
+#: functions.php:196
+msgid "collapse child menu"
+msgstr ""
+
+#: inc/breadcrumb-class.php:244
+msgid "Browse:"
+msgstr ""
+
+#: inc/breadcrumb-class.php:246
+msgid "Home"
+msgstr ""
+
+#: inc/breadcrumb-class.php:247
+msgid "404 Not Found"
+msgstr ""
+
+#: inc/breadcrumb-class.php:248
+msgid "Archives"
+msgstr ""
+
+#: inc/breadcrumb-class.php:250
+#. Translators: %s is the search query. The HTML entities are opening and
+#. closing curly quotes.
+msgid "Search results for &#8220;%s&#8221;"
+msgstr ""
+
+#: inc/breadcrumb-class.php:252
+#. Translators: %s is the page number.
+msgid "Page %s"
+msgstr ""
+
+#: inc/breadcrumb-class.php:254
+#. Translators: Minute archive title. %s is the minute time format.
+msgid "Minute %s"
+msgstr ""
+
+#: inc/breadcrumb-class.php:256
+#. Translators: Weekly archive title. %s is the week date format.
+msgid "Week %s"
+msgstr ""
+
+#: inc/core.php:44
+msgid "Note"
+msgstr ""
+
+#: inc/core.php:44
+msgid " The recommended size for image is 1700px by 750px while using it for slider"
+msgstr ""
+
+#: inc/customizer/customizer.php:39
+msgid "Homepage Section"
+msgstr ""
+
+#: inc/customizer/customizer.php:40
+msgid "Homepage Section Options."
+msgstr ""
+
+#: inc/customizer/customizer.php:67
+msgid "Theme Options"
+msgstr ""
+
+#: inc/customizer/customizer.php:68
+msgid "Travel Insight Theme Options."
+msgstr ""
+
+#: inc/customizer/customizer.php:162
+msgid "Refresh the customizer page after saving to view reset effects"
+msgstr ""
+
+#: inc/customizer/defaults.php:48
+#: inc/customizer/sections/popular-destination.php:11
+msgid "Popular Destination"
+msgstr ""
+
+#: inc/customizer/defaults.php:53
+msgid "Read More"
+msgstr ""
+
+#: inc/customizer/defaults.php:61
+msgid "Tour"
+msgstr ""
+
+#: inc/customizer/defaults.php:66
+msgid "Survival Guide"
+msgstr ""
+
+#: inc/customizer/defaults.php:70
+msgid "Learn More"
+msgstr ""
+
+#: inc/customizer/sections/about-us.php:11
+msgid "About Us"
+msgstr ""
+
+#: inc/customizer/sections/about-us.php:12
+msgid "About Us Options."
+msgstr ""
+
+#: inc/customizer/sections/about-us.php:23
+msgid "Enable About Us Section"
+msgstr ""
+
+#: inc/customizer/sections/about-us.php:34
+#: inc/customizer/sections/call-to-action.php:34
+msgid "Select Page"
+msgstr ""
+
+#: inc/customizer/sections/about-us.php:48
+msgid "Button Link Title"
+msgstr ""
+
+#: inc/customizer/sections/articles.php:11
+msgid "Articles"
+msgstr ""
+
+#: inc/customizer/sections/articles.php:12
+msgid "Articles Options."
+msgstr ""
+
+#: inc/customizer/sections/articles.php:23
+msgid "Enable Articles Section"
+msgstr ""
+
+#: inc/customizer/sections/articles.php:37
+msgid "Select Background Image"
+msgstr ""
+
+#: inc/customizer/sections/articles.php:38
+#: inc/customizer/sections/slider.php:77
+#: inc/customizer/theme-options/destination.php:26
+msgid "Recommended size: %1$dpx x %2$dpx "
+msgstr ""
+
+#: inc/customizer/sections/articles.php:49
+#: inc/customizer/sections/popular-destination.php:80
+msgid "Select Category"
+msgstr ""
+
+#: inc/customizer/sections/articles.php:50
+msgid "Latest one post from selected category will be shown."
+msgstr ""
+
+#: inc/customizer/sections/call-to-action.php:11
+msgid "Call To Action"
+msgstr ""
+
+#: inc/customizer/sections/call-to-action.php:12
+msgid "Call To Action Options."
+msgstr ""
+
+#: inc/customizer/sections/call-to-action.php:23
+msgid "Enable Call To Action Section"
+msgstr ""
+
+#: inc/customizer/sections/call-to-action.php:48
+msgid "Button Label"
+msgstr ""
+
+#: inc/customizer/sections/guide.php:11
+msgid "Guide"
+msgstr ""
+
+#: inc/customizer/sections/guide.php:12
+msgid "Guide Options."
+msgstr ""
+
+#: inc/customizer/sections/guide.php:23
+msgid "Enable Guide Section"
+msgstr ""
+
+#: inc/customizer/sections/guide.php:36
+#: inc/customizer/sections/popular-destination.php:36
+#: inc/customizer/sections/tours.php:36
+msgid "Title"
+msgstr ""
+
+#: inc/customizer/sections/guide.php:61 inc/customizer/sections/slider.php:89
+msgid "Select Page %d"
+msgstr ""
+
+#: inc/customizer/sections/popular-destination.php:12
+msgid "Popular Destination Options."
+msgstr ""
+
+#: inc/customizer/sections/popular-destination.php:23
+msgid "Enable Popular Destination Section"
+msgstr ""
+
+#: inc/customizer/sections/popular-destination.php:62
+msgid "Number of Destinations"
+msgstr ""
+
+#: inc/customizer/sections/popular-destination.php:63
+msgid ""
+"Note: Min 1 & Max 7. Please input the valid number and save. Then referesh "
+"the page to see the change."
+msgstr ""
+
+#: inc/customizer/sections/popular-destination.php:81
+msgid "Latest posts from selected category will be shown."
+msgstr ""
+
+#: inc/customizer/sections/slider.php:11
+msgid "Featured Slider"
+msgstr ""
+
+#: inc/customizer/sections/slider.php:12
+msgid "Slider Section Options."
+msgstr ""
+
+#: inc/customizer/sections/slider.php:23
+msgid "Enable Slider Section"
+msgstr ""
+
+#: inc/customizer/sections/slider.php:35
+msgid "Enable Slider Caption"
+msgstr ""
+
+#: inc/customizer/sections/slider.php:48
+msgid "Enable Search Field"
+msgstr ""
+
+#: inc/customizer/sections/slider.php:76
+msgid "Select Slider Background"
+msgstr ""
+
+#: inc/customizer/sections/tours.php:11
+msgid "Tours"
+msgstr ""
+
+#: inc/customizer/sections/tours.php:12
+msgid "Tours Options."
+msgstr ""
+
+#: inc/customizer/sections/tours.php:23
+msgid "Enable Tours Section"
+msgstr ""
+
+#: inc/customizer/sections/tours.php:59
+msgid "Select Multiple Categories"
+msgstr ""
+
+#: inc/customizer/sections/tours.php:60
+msgid ""
+"Note: Press Shift and Click on multiple categories to select. Selected "
+"categories will be shown."
+msgstr ""
+
+#: inc/customizer/theme-options/404.php:13
+msgid "404 Options"
+msgstr ""
+
+#: inc/customizer/theme-options/404.php:27
+msgid "Select 404 Image"
+msgstr ""
+
+#: inc/customizer/theme-options/404.php:28
+msgid "Recommended size: %1$dpx x %2$dpx in png format."
+msgstr ""
+
+#: inc/customizer/theme-options/blog.php:11
+msgid "Blog Page"
+msgstr ""
+
+#: inc/customizer/theme-options/blog.php:12
+msgid "Blog Page Options."
+msgstr ""
+
+#: inc/customizer/theme-options/blog.php:23
+msgid "Enable Featured Image"
+msgstr ""
+
+#: inc/customizer/theme-options/blog.php:24
+#: inc/customizer/theme-options/blog.php:37
+#: inc/customizer/theme-options/blog.php:50
+msgid "Note: This setting will trigger Blog, Archive & Search Page."
+msgstr ""
+
+#: inc/customizer/theme-options/blog.php:36
+#: inc/customizer/theme-options/single.php:23
+msgid "Enable Post Date"
+msgstr ""
+
+#: inc/customizer/theme-options/blog.php:49
+#: inc/customizer/theme-options/single.php:35
+msgid "Enable Post Categories"
+msgstr ""
+
+#: inc/customizer/theme-options/blog.php:61
+msgid "Select Categories to Exclude"
+msgstr ""
+
+#: inc/customizer/theme-options/breadcrumb.php:11
+msgid "Breadcrumb"
+msgstr ""
+
+#: inc/customizer/theme-options/breadcrumb.php:12
+msgid "Breadcrumb section options."
+msgstr ""
+
+#: inc/customizer/theme-options/breadcrumb.php:23
+msgid "Enable Breadcrumb"
+msgstr ""
+
+#: inc/customizer/theme-options/destination.php:11
+msgid "Destination Page"
+msgstr ""
+
+#: inc/customizer/theme-options/destination.php:12
+msgid "Destination single page options."
+msgstr ""
+
+#: inc/customizer/theme-options/destination.php:25
+msgid "Select Content Background Image"
+msgstr ""
+
+#: inc/customizer/theme-options/destination.php:39
+msgid "Related Destination Title"
+msgstr ""
+
+#: inc/customizer/theme-options/destination.php:63
+msgid "Related Destination Sub Title"
+msgstr ""
+
+#: inc/customizer/theme-options/excerpt.php:12
+msgid "Excerpt"
+msgstr ""
+
+#: inc/customizer/theme-options/excerpt.php:13
+msgid "Excerpt section options."
+msgstr ""
+
+#: inc/customizer/theme-options/excerpt.php:26
+msgid "Blog Page Excerpt Length"
+msgstr ""
+
+#: inc/customizer/theme-options/excerpt.php:27
+msgid "Total words to be displayed in archive page/search page."
+msgstr ""
+
+#: inc/customizer/theme-options/footer.php:13
+msgid "Footer Options"
+msgstr ""
+
+#: inc/customizer/theme-options/footer.php:29
+msgid "Footer Text"
+msgstr ""
+
+#: inc/customizer/theme-options/footer.php:55
+msgid "Display Scroll Top Button"
+msgstr ""
+
+#: inc/customizer/theme-options/header.php:13
+msgid "Header Options"
+msgstr ""
+
+#: inc/customizer/theme-options/header.php:26
+msgid "Enable Site Title"
+msgstr ""
+
+#: inc/customizer/theme-options/header.php:38
+msgid "Enable Site Description"
+msgstr ""
+
+#: inc/customizer/theme-options/header.php:50
+msgid "Enable Site Logo"
+msgstr ""
+
+#: inc/customizer/theme-options/header.php:62
+msgid "Enable Social Menu"
+msgstr ""
+
+#: inc/customizer/theme-options/header.php:74
+msgid "Enable Menu label in responsive view"
+msgstr ""
+
+#: inc/customizer/theme-options/homepage-static.php:17
+msgid "Enable Content"
+msgstr ""
+
+#: inc/customizer/theme-options/homepage-static.php:18
+msgid "Check to enable content on static front page only."
+msgstr ""
+
+#: inc/customizer/theme-options/layout.php:12
+msgid "Layout"
+msgstr ""
+
+#: inc/customizer/theme-options/layout.php:13
+msgid "Layout section options."
+msgstr ""
+
+#: inc/customizer/theme-options/layout.php:24
+msgid "Sidebar Position"
+msgstr ""
+
+#: inc/customizer/theme-options/layout.php:37 inc/options.php:247
+msgid "Content Width"
+msgstr ""
+
+#: inc/customizer/theme-options/layout.php:38
+msgid "Note: It works on single post and page"
+msgstr ""
+
+#: inc/customizer/theme-options/layout.php:51
+msgid "Site Layout"
+msgstr ""
+
+#: inc/customizer/theme-options/package.php:11
+msgid "Package Page"
+msgstr ""
+
+#: inc/customizer/theme-options/package.php:12
+msgid "Package single page options."
+msgstr ""
+
+#: inc/customizer/theme-options/package.php:24
+msgid "Package Archive Title"
+msgstr ""
+
+#: inc/customizer/theme-options/package.php:25
+msgid "Title to display in package archive page."
+msgstr ""
+
+#: inc/customizer/theme-options/package.php:49
+msgid "Package Archive Sub Title"
+msgstr ""
+
+#: inc/customizer/theme-options/package.php:50
+msgid "Sub title to display in package archive page."
+msgstr ""
+
+#: inc/customizer/theme-options/package.php:74
+msgid "Package Search Title"
+msgstr ""
+
+#: inc/customizer/theme-options/package.php:75
+msgid "Title to display in package search page."
+msgstr ""
+
+#: inc/customizer/theme-options/package.php:99
+msgid "Package Search Sub Title"
+msgstr ""
+
+#: inc/customizer/theme-options/package.php:100
+msgid "Sub title to display in package search page."
+msgstr ""
+
+#: inc/customizer/theme-options/pagination.php:12
+msgid "Pagination"
+msgstr ""
+
+#: inc/customizer/theme-options/pagination.php:13
+msgid "Pagination section options."
+msgstr ""
+
+#: inc/customizer/theme-options/pagination.php:24
+msgid "Pagination Enable"
+msgstr ""
+
+#: inc/customizer/theme-options/pagination.php:36
+msgid "Pagination Type"
+msgstr ""
+
+#: inc/customizer/theme-options/reset.php:15
+msgid "Reset all settings"
+msgstr ""
+
+#: inc/customizer/theme-options/reset.php:16
+msgid ""
+"Caution: All customizer settings will be reset to default. Refresh the page "
+"after clicking Save & Publish."
+msgstr ""
+
+#: inc/customizer/theme-options/reset.php:27
+msgid "Check to reset all settings"
+msgstr ""
+
+#: inc/customizer/theme-options/single.php:11
+msgid "Single Page"
+msgstr ""
+
+#: inc/customizer/theme-options/single.php:12
+msgid "Single Page section options."
+msgstr ""
+
+#: inc/customizer/theme-options/single.php:47
+msgid "Enable Author Box"
+msgstr ""
+
+#: inc/customizer/theme-options/single.php:59
+msgid "Enable Pagination"
+msgstr ""
+
+#: inc/customizer/upgrade-to-pro/class-customize.php:76
+msgid "Travel Insight Pro"
+msgstr ""
+
+#: inc/customizer/upgrade-to-pro/class-customize.php:77
+msgid "Go Pro"
+msgstr ""
+
+#: inc/customizer/validation.php:14 inc/customizer/validation.php:28
+msgid "You must supply a valid number."
+msgstr ""
+
+#: inc/customizer/validation.php:16
+msgid "Minimum no of words is 5"
+msgstr ""
+
+#: inc/customizer/validation.php:18
+msgid "Maximum no of words is 100"
+msgstr ""
+
+#: inc/customizer/validation.php:30
+msgid "Minimum no of destinations is 1"
+msgstr ""
+
+#: inc/customizer/validation.php:32
+msgid "Maximum no of destinations is 7"
+msgstr ""
+
+#: inc/helpers.php:173
+msgid "Previous"
+msgstr ""
+
+#: inc/helpers.php:174
+msgid "Next"
+msgstr ""
+
+#: inc/helpers.php:425
+msgid "Search Result for: %s"
+msgstr ""
+
+#: inc/helpers.php:436
+msgid "Blogs"
+msgstr ""
+
+#: inc/helpers.php:461
+msgid "Author"
+msgstr ""
+
+#: inc/icon-function.php:39
+msgid "Please define default parameters in the form of an array."
+msgstr ""
+
+#: inc/icon-function.php:44
+msgid "Please define an SVG icon filename."
+msgstr ""
+
+#: inc/metabox/category-metabox.php:20 inc/metabox/metabox.php:98
+msgid "Select Icon"
+msgstr ""
+
+#: inc/metabox/category-metabox.php:29 inc/metabox/category-metabox.php:57
+msgid "Select appropriate icon for the category."
+msgstr ""
+
+#: inc/metabox/category-metabox.php:49
+msgid "Icon"
+msgstr ""
+
+#: inc/metabox/metabox.php:88
+msgid "Icon Options"
+msgstr ""
+
+#: inc/metabox/metabox.php:89
+msgid "Layout Options"
+msgstr ""
+
+#: inc/metabox/metabox.php:90
+msgid "Header Image Options"
+msgstr ""
+
+#: inc/metabox/metabox.php:91
+msgid "Select Sidebar"
+msgstr ""
+
+#: inc/metabox/metabox.php:118
+msgid "Default ( to customizer option )"
+msgstr ""
+
+#: inc/metabox/metabox.php:224
+msgid "Travel Insight Meta Options"
+msgstr ""
+
+#: inc/modules/popular-destination.php:150
+msgid "See More"
+msgstr ""
+
+#: inc/options.php:18
+msgid "Wide"
+msgstr ""
+
+#: inc/options.php:19
+msgid "Boxed"
+msgstr ""
+
+#: inc/options.php:36
+msgid "Right"
+msgstr ""
+
+#: inc/options.php:37
+msgid "No Sidebar"
+msgstr ""
+
+#: inc/options.php:54
+msgid "Default(Older/Newer)"
+msgstr ""
+
+#: inc/options.php:55
+msgid "Numeric"
+msgstr ""
+
+#: inc/options.php:71
+msgid "Drop"
+msgstr ""
+
+#: inc/options.php:72
+msgid "Behance"
+msgstr ""
+
+#: inc/options.php:73
+msgid "Deviantart"
+msgstr ""
+
+#: inc/options.php:74
+msgid "Medium"
+msgstr ""
+
+#: inc/options.php:75
+msgid "Slideshare"
+msgstr ""
+
+#: inc/options.php:76
+msgid "Snapchat Ghost"
+msgstr ""
+
+#: inc/options.php:77
+msgid "Yelp"
+msgstr ""
+
+#: inc/options.php:78
+msgid "Vine"
+msgstr ""
+
+#: inc/options.php:79
+msgid "VK"
+msgstr ""
+
+#: inc/options.php:80 searchform.php:15 searchform.php:17
+msgid "Search"
+msgstr ""
+
+#: inc/options.php:81
+msgid "Envelope O"
+msgstr ""
+
+#: inc/options.php:82
+msgid "Close"
+msgstr ""
+
+#: inc/options.php:83
+msgid "Angle Down"
+msgstr ""
+
+#: inc/options.php:84
+msgid "Folder Open"
+msgstr ""
+
+#: inc/options.php:85
+msgid "Twitter"
+msgstr ""
+
+#: inc/options.php:86
+msgid "Facebook"
+msgstr ""
+
+#: inc/options.php:87
+msgid "Github"
+msgstr ""
+
+#: inc/options.php:88
+msgid "Bars"
+msgstr ""
+
+#: inc/options.php:89
+msgid "Google Plus"
+msgstr ""
+
+#: inc/options.php:90
+msgid "Linkedin"
+msgstr ""
+
+#: inc/options.php:91
+msgid "Quote Right"
+msgstr ""
+
+#: inc/options.php:92
+msgid "Mail Reply"
+msgstr ""
+
+#: inc/options.php:93
+msgid "Youtube"
+msgstr ""
+
+#: inc/options.php:94
+msgid "Dropbox"
+msgstr ""
+
+#: inc/options.php:95
+msgid "Instagram"
+msgstr ""
+
+#: inc/options.php:96
+msgid "Flickr"
+msgstr ""
+
+#: inc/options.php:97
+msgid "Tumblr"
+msgstr ""
+
+#: inc/options.php:98
+msgid "Dribbble"
+msgstr ""
+
+#: inc/options.php:99
+msgid "Skype"
+msgstr ""
+
+#: inc/options.php:100
+msgid "Foursquare"
+msgstr ""
+
+#: inc/options.php:101
+msgid "WordPress"
+msgstr ""
+
+#: inc/options.php:102
+msgid "Stumbleupon"
+msgstr ""
+
+#: inc/options.php:103
+msgid "Digg"
+msgstr ""
+
+#: inc/options.php:104
+msgid "Spotify"
+msgstr ""
+
+#: inc/options.php:105
+msgid "Soundcloud"
+msgstr ""
+
+#: inc/options.php:106
+msgid "Codepen"
+msgstr ""
+
+#: inc/options.php:107
+msgid "Twitch"
+msgstr ""
+
+#: inc/options.php:108
+msgid "Meanpath"
+msgstr ""
+
+#: inc/options.php:109
+msgid "Pinterest"
+msgstr ""
+
+#: inc/options.php:110
+msgid "Get Pocket"
+msgstr ""
+
+#: inc/options.php:111
+msgid "Vimeo"
+msgstr ""
+
+#: inc/options.php:112
+msgid "Reddit Alien"
+msgstr ""
+
+#: inc/options.php:113
+msgid "Hashtag"
+msgstr ""
+
+#: inc/options.php:114
+msgid "Chain"
+msgstr ""
+
+#: inc/options.php:115
+msgid "Thumb Tack"
+msgstr ""
+
+#: inc/options.php:116
+msgid "Arrow Left"
+msgstr ""
+
+#: inc/options.php:117
+msgid "Arrow Right"
+msgstr ""
+
+#: inc/options.php:118
+msgid "Play"
+msgstr ""
+
+#: inc/options.php:119
+msgid "Pause"
+msgstr ""
+
+#: inc/options.php:120
+msgid "Tripadvisor"
+msgstr ""
+
+#: inc/options.php:121
+msgid "Notebook"
+msgstr ""
+
+#: inc/options.php:122
+msgid "Phone Call"
+msgstr ""
+
+#: inc/options.php:123
+msgid "Ambulance"
+msgstr ""
+
+#: inc/options.php:124
+msgid "Mountain"
+msgstr ""
+
+#: inc/options.php:125
+msgid "Mountain 1"
+msgstr ""
+
+#: inc/options.php:126
+msgid "Mountain 2"
+msgstr ""
+
+#: inc/options.php:127
+msgid "Mountain 3"
+msgstr ""
+
+#: inc/options.php:128
+msgid "Mountain 4"
+msgstr ""
+
+#: inc/options.php:129
+msgid "Mountain 5"
+msgstr ""
+
+#: inc/options.php:130
+msgid "Mountain 6"
+msgstr ""
+
+#: inc/options.php:131
+msgid "Pills"
+msgstr ""
+
+#: inc/options.php:132
+msgid "Pills 1"
+msgstr ""
+
+#: inc/options.php:133
+msgid "Stethoscope"
+msgstr ""
+
+#: inc/options.php:134
+msgid "Medical Result"
+msgstr ""
+
+#: inc/options.php:135
+msgid "Calendar 1"
+msgstr ""
+
+#: inc/options.php:136
+msgid "Calendar 2"
+msgstr ""
+
+#: inc/options.php:137
+msgid "Calendar 3"
+msgstr ""
+
+#: inc/options.php:138
+msgid "Calendar 4"
+msgstr ""
+
+#: inc/options.php:139
+msgid "Calendar 5"
+msgstr ""
+
+#: inc/options.php:140
+msgid "Mountains"
+msgstr ""
+
+#: inc/options.php:141
+msgid "Mountains 1"
+msgstr ""
+
+#: inc/options.php:142
+msgid "Goal"
+msgstr ""
+
+#: inc/options.php:143
+msgid "Fish"
+msgstr ""
+
+#: inc/options.php:144
+msgid "Fish 1"
+msgstr ""
+
+#: inc/options.php:145
+msgid "Fish 2"
+msgstr ""
+
+#: inc/options.php:146
+msgid "Lighthouse"
+msgstr ""
+
+#: inc/options.php:147
+msgid "Lighthouse 1"
+msgstr ""
+
+#: inc/options.php:148
+msgid "Transport"
+msgstr ""
+
+#: inc/options.php:149
+msgid "Transport 1"
+msgstr ""
+
+#: inc/options.php:150
+msgid "Transport 2"
+msgstr ""
+
+#: inc/options.php:151
+msgid "Transport 3"
+msgstr ""
+
+#: inc/options.php:152
+msgid "Transport 4"
+msgstr ""
+
+#: inc/options.php:153
+msgid "Transport 5"
+msgstr ""
+
+#: inc/options.php:154
+msgid "Transport 6"
+msgstr ""
+
+#: inc/options.php:155
+msgid "Transport 7"
+msgstr ""
+
+#: inc/options.php:156
+msgid "Transport 8"
+msgstr ""
+
+#: inc/options.php:157
+msgid "Coffee Cup"
+msgstr ""
+
+#: inc/options.php:158
+msgid "Coffee Cup 1"
+msgstr ""
+
+#: inc/options.php:159
+msgid "Coffee Cup 2"
+msgstr ""
+
+#: inc/options.php:160
+msgid "Ferry Facing Right"
+msgstr ""
+
+#: inc/options.php:161
+msgid "Aeroplane"
+msgstr ""
+
+#: inc/options.php:162
+msgid "Aeroplane 1"
+msgstr ""
+
+#: inc/options.php:163
+msgid "Tea"
+msgstr ""
+
+#: inc/options.php:164
+msgid "Nature"
+msgstr ""
+
+#: inc/options.php:165
+msgid "Nature 1"
+msgstr ""
+
+#: inc/options.php:166
+msgid "Sun"
+msgstr ""
+
+#: inc/options.php:167
+msgid "Tree With Many Leaves"
+msgstr ""
+
+#: inc/options.php:168
+msgid "Umbrella"
+msgstr ""
+
+#: inc/options.php:169
+msgid "Rain"
+msgstr ""
+
+#: inc/options.php:170
+msgid "Ballons"
+msgstr ""
+
+#: inc/options.php:171
+msgid "Cloud 1"
+msgstr ""
+
+#: inc/options.php:172
+msgid "Travel"
+msgstr ""
+
+#: inc/options.php:173
+msgid "Car"
+msgstr ""
+
+#: inc/options.php:174
+msgid "Double Bed"
+msgstr ""
+
+#: inc/options.php:175
+msgid "Angle Arrow Pointing To Right"
+msgstr ""
+
+#: inc/options.php:176
+msgid "Star"
+msgstr ""
+
+#: inc/options.php:177
+msgid "Man User"
+msgstr ""
+
+#: inc/options.php:178
+msgid "Flag"
+msgstr ""
+
+#: inc/options.php:179
+msgid "Chat"
+msgstr ""
+
+#: inc/options.php:180
+msgid "Commenting"
+msgstr ""
+
+#: inc/options.php:181
+msgid "Eye Open"
+msgstr ""
+
+#: inc/options.php:182
+msgid "Forest"
+msgstr ""
+
+#: inc/options.php:183
+msgid "Sunbed"
+msgstr ""
+
+#: inc/options.php:184
+msgid "Angle Arrow Down"
+msgstr ""
+
+#: inc/options.php:185
+msgid "Up Arrow"
+msgstr ""
+
+#: inc/options.php:186
+msgid "Wallet Filled Money Tool"
+msgstr ""
+
+#: inc/options.php:187
+msgid "Cloud"
+msgstr ""
+
+#: inc/options.php:188
+msgid "Calendar"
+msgstr ""
+
+#: inc/options.php:189
+msgid "Deer"
+msgstr ""
+
+#: inc/options.php:190
+msgid "Hiking Sticks"
+msgstr ""
+
+#: inc/options.php:191
+msgid "Ship"
+msgstr ""
+
+#: inc/options.php:192
+msgid "Balloon Flying"
+msgstr ""
+
+#: inc/options.php:193
+msgid "Zoom In"
+msgstr ""
+
+#: inc/options.php:194
+msgid "Magnifying Glass"
+msgstr ""
+
+#: inc/options.php:195
+msgid "Passport"
+msgstr ""
+
+#: inc/options.php:196
+msgid "Menu Bar"
+msgstr ""
+
+#: inc/options.php:212
+msgid "Primary Sidebar"
+msgstr ""
+
+#: inc/options.php:213
+msgid "Optional Sidebar 1"
+msgstr ""
+
+#: inc/options.php:229
+msgid "Show Both( Featured and Header Image )"
+msgstr ""
+
+#: inc/options.php:230
+msgid "Enable( Featured Image )"
+msgstr ""
+
+#: inc/options.php:231
+msgid "Default ( Customizer Header Image )"
+msgstr ""
+
+#: inc/options.php:248
+msgid "Full Width"
+msgstr ""
+
+#: inc/structure.php:61
+msgid "Skip to content"
+msgstr ""
+
+#: inc/structure.php:172
+msgid "Menu"
+msgstr ""
+
+#: inc/structure.php:331
+msgid " | "
+msgstr ""
+
+#: inc/structure.php:333
+msgid "%1$s by %2$s"
+msgstr ""
+
+#: inc/template-tags.php:75
+#. translators: used between list items, there is a space after the comma
+msgid ", "
+msgstr ""
+
+#: inc/template-tags.php:77
+msgid "Tags: %1$s"
+msgstr ""
+
+#: inc/template-tags.php:84 template-parts/content-page.php:47
+#. translators: %s: Name of current post
+msgid "Edit %s"
+msgstr ""
+
+#: inc/widgets/latest-posts-widget.php:22
+msgid "Retrive latest posts."
+msgstr ""
+
+#: inc/widgets/latest-posts-widget.php:24
+msgid "TP : Latest Posts"
+msgstr ""
+
+#: inc/widgets/latest-posts-widget.php:39
+#: inc/widgets/latest-posts-widget.php:89
+msgid "Latest Posts"
+msgstr ""
+
+#: inc/widgets/latest-posts-widget.php:94
+msgid "Title:"
+msgstr ""
+
+#: inc/widgets/latest-posts-widget.php:99
+msgid "Number of posts to show:"
+msgstr ""
+
+#: inc/widgets/widgets.php:19
+msgid "Sidebar"
+msgstr ""
+
+#: inc/widgets/widgets.php:21 inc/widgets/widgets.php:32
+msgid "Add widgets here."
+msgstr ""
+
+#: inc/widgets/widgets.php:30
+msgid "Optional Sidebar"
+msgstr ""
+
+#: inc/widgets/widgets.php:41
+msgid "Footer Widget Area %d"
+msgstr ""
+
+#: inc/widgets/widgets.php:43
+msgid "This Widget Area is for Footer Section."
+msgstr ""
+
+#: searchform.php:14
+msgid "Search for:"
+msgstr ""
+
+#: template-parts/content-none.php:16
+msgid "Nothing Found"
+msgstr ""
+
+#: template-parts/content-none.php:23
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: template-parts/content-none.php:27
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: template-parts/content-none.php:33
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: template-parts/content-page.php:35 template-parts/content-single.php:44
+msgid "Pages:"
+msgstr ""
+
+#: template-parts/content-single.php:39
+#. translators: %s: Name of current post.
+msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "Travel Insight"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "https://themepalace.com/downloads/travel-insight"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Travel Insight is a travel and tourism theme developed by Theme Palace. It "
+"is a multipurpose WordPress Travel Theme suitable for tourism companies and "
+"other business companies. It's eye appealing design and highly dynamic "
+"features uplifts your organization's reputation. It comes with layouts to "
+"support your organization's branding and operation. It comes with a wide "
+"variety of options so you can modify Layout, Styling, Featured Slider, "
+"Menus, Breadcrumb, Widgets and much more, directly from theme customizer. "
+"Travel Insight can be adapted to any kind of industry – not only travel "
+"agencies but also in any kind of business organizations. This theme is "
+"translation ready and major browsers supportive."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Theme Palace"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://themepalace.com/"
+msgstr ""
+
+#: comments.php:35
+#. translators: %s: post title
+msgctxt "comments title"
+msgid "One comment"
+msgstr ""
+
+#: comments.php:39
+#. translators: 1: number of comments, 2: post title
+msgctxt "comments title"
+msgid "%1$s comment"
+msgid_plural "%1$s comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: functions.php:123
+#. translators: If there are characters in your language that are not supported
+#. by Playfair Display, translate this to 'off'. Do not translate into your own
+#. language.
+msgctxt "Playfair Display font: on or off"
+msgid "on"
+msgstr ""
+
+#: functions.php:130
+#. translators: If there are characters in your language that are not supported
+#. by Oxygen, translate this to 'off'. Do not translate into your own language.
+msgctxt "Oxygen font: on or off"
+msgid "on"
+msgstr ""
+
+#: inc/breadcrumb-class.php:245
+msgctxt "breadcrumbs aria label"
+msgid "Breadcrumbs"
+msgstr ""
+
+#: inc/breadcrumb-class.php:708
+msgctxt "minute and hour archives time format"
+msgid "g:i a"
+msgstr ""
+
+#: inc/breadcrumb-class.php:725
+msgctxt "minute archives time format"
+msgid "i"
+msgstr ""
+
+#: inc/breadcrumb-class.php:742
+msgctxt "hour archives time format"
+msgid "g a"
+msgstr ""
+
+#: inc/breadcrumb-class.php:758 inc/breadcrumb-class.php:787
+#: inc/breadcrumb-class.php:814 inc/breadcrumb-class.php:841
+#: inc/breadcrumb-class.php:1177
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr ""
+
+#: inc/breadcrumb-class.php:759 inc/breadcrumb-class.php:815
+#: inc/breadcrumb-class.php:1181
+msgctxt "monthly archives date format"
+msgid "F"
+msgstr ""
+
+#: inc/breadcrumb-class.php:760 inc/breadcrumb-class.php:1185
+msgctxt "daily archives date format"
+msgid "j"
+msgstr ""
+
+#: inc/breadcrumb-class.php:788
+msgctxt "weekly archives date format"
+msgid "W"
+msgstr ""
+
+#: inc/customizer/defaults.php:27
+msgctxt "1: Year, 2: Site Title with home URL"
+msgid "Copyright &copy; %1$s %2$s. All Rights Reserved"
+msgstr ""

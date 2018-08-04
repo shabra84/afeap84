@@ -1,0 +1,84 @@
+/*----------------------------------------
+				TEXT COLORS
+------------------------------------------*/
+.tab-slider a time:hover, 
+.tab-slider a span:hover, 
+.top-places-content h4 a:hover, 
+.more-link:hover, 
+.places-content a:hover, 
+.blog .blog-content .entry-title a:hover, 
+.blog .blog-content .entry-title a span:hover,
+.archive .blog-content .entry-title a:hover, 
+.archive .blog-content .entry-title a span:hover,
+.search .blog-content .entry-title a:hover, 
+.search .blog-content .entry-title a span:hover,
+.single-post #primary header.entry-header a:hover, 
+.about-content h4 a:hover, 
+.widget.widget_nav_menu ul li a:hover, 
+.footer-menu ul li a:hover, 
+.site-info a:hover, 
+.site-footer .site-info a:hover, 
+#site-header .site-title a:hover, 
+.destination-form button.search-submit:hover, 
+.entry-meta a:hover, 
+.author-name a:hover, 
+.comment-meta .url:hover, 
+.comment-metadata time:hover, 
+.reserved-content a:hover,
+.popular-content h4 a:hover, 
+.contact-details ul li a:hover,
+.tour-slider .slider-item a:hover,
+.destination-footer span, 
+.destination-footer time,
+.entry-meta time,
+.entry-meta .cat-links a:hover,
+.post-navigation span.title,
+.author-name span,
+.duration,
+.widget ul li a:hover,
+#adventure .tab-slider .entry-title a:hover {
+    color: #20aec8;
+}
+
+/*----------------------------------------
+				BACKGROUND COLORS
+------------------------------------------*/
+.backtotop:hover,
+.popular-content .popup:hover, 
+.wonderful-places .featured-image .popup:hover,
+.btn-transparent:hover, 
+.btn-transparent:focus,
+.post-navigation .nav-previous a:hover, 
+.post-navigation .nav-next a:hover, 
+p.form-submit input[type="submit"]:hover,
+.survival-guide:hover .icon-wrapper,
+input.wpcf7-form-control.wpcf7-submit,
+#portfolio .featured-image,
+.reply a:hover {
+    background-color: #20aec8;
+}
+
+
+/*----------------------------------------
+				BORDER COLORS
+------------------------------------------*/
+ul.sub-menu,
+.btn-transparent:hover,
+.btn-transparent:focus, 
+.post-navigation .nav-previous a:hover, 
+.post-navigation .nav-next a:hover, 
+p.form-submit input[type="submit"]:hover,
+.wonderful-places .row:first-child .column-wrapper:nth-child(2n) .destination-details,
+.wonderful-places .column-wrapper:nth-child(odd) .destination-details,
+.reply a:hover,
+#call-to-action .btn:hover,
+#call-to-action .btn:focus {
+    border-color: #20aec8;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,1 @@
+jQuery(document).ready(function(){jQuery("#travel-insight-ui-tabs").tabs()});

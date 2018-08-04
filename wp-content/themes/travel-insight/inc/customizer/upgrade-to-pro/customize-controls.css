@@ -1,0 +1,24 @@
+#customize-controls .control-section-travel-insight .accordion-section-title:hover,
+#customize-controls .control-section-travel-insight .accordion-section-title:focus {
+	background-color: #e9f5f8;
+	color: #303c48;
+}
+
+.control-section-travel-insight .accordion-section-title .button {
+	margin-top:  -4px;
+	font-weight: 400;
+	margin-left: 8px;
+	background-color: #20aec8;
+	border-color: #20aec8;
+	color: #fff;
+}
+
+.rtl .control-section-travel-insight .accordion-section-title .button {
+	margin-left:  0;
+	margin-right: 8px;
+}
+
+li#accordion-section-travel-insight h3.accordion-section-title {
+    background-color: #e9f5f8;
+    color: #303c48;
+}
