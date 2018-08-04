@@ -1491,6 +1491,7 @@ footer#colophon .widget {
         margin-top: 25px;
         border-top: 2px dashed;
         padding-top: 19px;
+        background-color:#42a12c;
 }
 
 footer#colophon .widget.widget_latest_post ul .has-post-thumbnail .post-image img {
@@ -1740,8 +1741,8 @@ section:before {
     clear: both;
 }
 .wrapper {
-    width: 90%;
-    max-width: 1170px;
+    width: 100%;
+   /* max-width: 1170px;*/
     margin: 0 auto;
 }
 .row {
@@ -1933,6 +1934,7 @@ svg.icon.icon-spinner-circle {
     color: #fff;
 	border-radius: 20px;
 	border: 2px solid #fff;
+    top: 171px;
 }
 .backtotop svg.icon.icon-angle-down {
     width: 20px;
@@ -3404,9 +3406,11 @@ body.search .no-results .page-title {
 # Footer
 --------------------------------------------------------------*/
 .widget-title {
-    margin-top: 0;
+    /*margin-top: 0;
     font-size: 20px;
-    text-transform: uppercase;
+    text-transform: uppercase;*/
+    
+    display:none;
 }
 .widget-title ,
 .article-title h2 a  {
@@ -6784,3 +6788,7 @@ td div {
     content: "\f0c0";
 }
 */
+
+div#calendar-9 {
+    background: #fff !important;
+}
