@@ -1491,7 +1491,7 @@ footer#colophon .widget {
         margin-top: 25px;
         border-top: 2px dashed;
         padding-top: 19px;
-        background-color:#42a12c;
+        background-color:#42a02d;
 }
 
 footer#colophon .widget.widget_latest_post ul .has-post-thumbnail .post-image img {
@@ -1935,6 +1935,8 @@ svg.icon.icon-spinner-circle {
 	border-radius: 20px;
 	border: 2px solid #fff;
     top: 171px;
+    
+    display: none !important;
 }
 .backtotop svg.icon.icon-angle-down {
     width: 20px;
@@ -6791,4 +6793,49 @@ td div {
 
 div#calendar-9 {
     background: #fff !important;
+}
+
+#custom_html-5 {
+    height: 111px;
+    color: #fff;
+    border:0px !important;
+}
+
+
+/* Footer mio */
+#footermio {
+    background: #42a12c;
+    height: 82px;
+}
+
+#footermio svg > path {
+    color: #fff !important;
+}
+
+#footermio .svg-inline--fa {
+    display: inline-block;
+    font-size: 31px !important;
+    height: 1em;
+    overflow: visible;
+    margin-left:96%;
+    /*margin-top: 2%;*/
+}
+
+#footermio span {
+    position: relative;
+    top: 35%;
+    /* left: 2%; */
+    color: #fff;
+    font-size: 12px;
+    margin: 0 auto;
+    overflow: visible;
+    display: table;
+    width: 91%;
+    text-align: center;
+}
+
+@media screen and (max-width: 767px){
+.entry-content svg{
+    margin-top: -113px !important;
+}
 }
