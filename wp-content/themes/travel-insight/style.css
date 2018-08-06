@@ -5668,6 +5668,11 @@ body.body-font-5 .wpcf7 textarea {
 	}
 }
 @media screen and (max-width: 992px){
+    
+        .main-navigation ul #menu-item-150 ul {
+            top: 0.3em !important;
+        } 
+    
 	.main-navigation .menu {
 		display: none;
 		border-top: 1px solid #eee;
@@ -5697,8 +5702,10 @@ body.body-font-5 .wpcf7 textarea {
         margin-right: 0;
     }
 	.main-navigation a svg.icon.icon-angle-down {
-		display: none;
+		/*display: none;*/
 	}
+        
+        
 	button.dropdown-toggle {
 	    position: absolute;
 	    top: 0;
@@ -6746,7 +6753,7 @@ div#primary > #main > div.blog-text{
 
 .main-navigation li:hover > a{
     
-    display:block;
+   /* display:block;*/
     
 }
 
@@ -6758,11 +6765,11 @@ div#breadcrumb-list {
 
 
 .wrapper.page-section.no-padding-bottom {
-    margin-top: -20%;
+    margin-top: -15%;
 }
 
 #content {
-    margin-top: 131px;
+    /*margin-top: 131px;*/
 }
 
 /*Elimino calendario de eventos de las vistas que no son el home*/
@@ -6837,5 +6844,13 @@ div#calendar-9 {
 @media screen and (max-width: 767px){
 .entry-content svg{
     margin-top: -113px !important;
+}
+
+#content {
+    margin-top: 78px;
+}
+
+#menu-item-150 a, #menu-item-192 a {
+    cursor: pointer;
 }
 }
