@@ -1140,10 +1140,19 @@ form.search-form input[type="search"] {
     color: #fff;
      background-color: #42a02d;
 }
-.calendar_wrap table thead th,
+/*.calendar_wrap table thead th,
 .calendar_wrap table td {
 	padding: 10px 0;
+}*/
+
+
+.calendar_wrap table thead th, .calendar_wrap table td {
+    /* padding: 10px 0; */
+    width: 9% !important;
 }
+
+
+
 .calendar_wrap table td {
 	border: 1px solid #eee;
 }
@@ -4168,9 +4177,16 @@ td#next {
 .calendar_wrap th {
 	text-align: center;
 }
-.calendar_wrap table {
+/*.calendar_wrap table {
 	display: table;
+}*/
+
+.calendar_wrap table {
+    display: table;
+    width: 40%;
+    margin: 0 auto;
 }
+
 #primary .entry-content table td,
 #primary .entry-content table th {
     background-color: #f6f6f6;
@@ -5668,6 +5684,15 @@ body.body-font-5 .wpcf7 textarea {
 	}
 }
 @media screen and (max-width: 992px){
+    
+    
+        
+    
+    
+        .main-navigation ul #menu-item-150 ul {
+            top: 0.3em !important;
+        } 
+    
 	.main-navigation .menu {
 		display: none;
 		border-top: 1px solid #eee;
@@ -5697,8 +5722,10 @@ body.body-font-5 .wpcf7 textarea {
         margin-right: 0;
     }
 	.main-navigation a svg.icon.icon-angle-down {
-		display: none;
+		/*display: none;*/
 	}
+        
+        
 	button.dropdown-toggle {
 	    position: absolute;
 	    top: 0;
@@ -6746,7 +6773,7 @@ div#primary > #main > div.blog-text{
 
 .main-navigation li:hover > a{
     
-    display:block;
+   /* display:block;*/
     
 }
 
@@ -6758,11 +6785,11 @@ div#breadcrumb-list {
 
 
 .wrapper.page-section.no-padding-bottom {
-    margin-top: -20%;
+    margin-top: -12%;
 }
 
 #content {
-    margin-top: 131px;
+    /*margin-top: 131px;*/
 }
 
 /*Elimino calendario de eventos de las vistas que no son el home*/
@@ -6835,8 +6862,26 @@ div#calendar-9 {
 }
 
 @media screen and (max-width: 767px){
+    
 .entry-content svg{
     margin-top: -113px !important;
 }
+<<<<<<< HEAD
 }
 /*esto es mas nuevo*/
+=======
+
+#menu-item-150 a, #menu-item-192 a {
+    cursor: pointer;
+}
+
+#footermio .svg-inline--fa {
+    margin-left: 90%;
+    /* margin-top: 2%; */
+}
+
+.wrapper.page-section.no-padding-bottom {
+    margin-top: -40% !important;
+}
+}
+>>>>>>> master
