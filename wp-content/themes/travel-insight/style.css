@@ -1498,7 +1498,7 @@ footer#colophon .widget.widget_latest_post ul .has-post-thumbnail .post-image im
 footer#colophon .widget {
 	padding-right: 25px;
         margin-top: 25px;
-        border-top: 2px dashed;
+        /*border-top: 2px dashed;*/
         padding-top: 19px;
         background-color:#42a02d;
 }
