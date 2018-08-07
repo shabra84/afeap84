@@ -6877,6 +6877,11 @@ div#calendar-9 {
 }
 
 .wrapper.page-section.no-padding-bottom {
-    margin-top: -40% !important;
+   margin-top: -77%;
+   margin-bottom: -12%;
+}
+
+#content {
+    margin-top: 45%;
 }
 }
