@@ -1140,10 +1140,19 @@ form.search-form input[type="search"] {
     color: #fff;
      background-color: #42a02d;
 }
-.calendar_wrap table thead th,
+/*.calendar_wrap table thead th,
 .calendar_wrap table td {
 	padding: 10px 0;
+}*/
+
+
+.calendar_wrap table thead th, .calendar_wrap table td {
+    /* padding: 10px 0; */
+    width: 9% !important;
 }
+
+
+
 .calendar_wrap table td {
 	border: 1px solid #eee;
 }
@@ -4168,9 +4177,16 @@ td#next {
 .calendar_wrap th {
 	text-align: center;
 }
-.calendar_wrap table {
+/*.calendar_wrap table {
 	display: table;
+}*/
+
+.calendar_wrap table {
+    display: table;
+    width: 40%;
+    margin: 0 auto;
 }
+
 #primary .entry-content table td,
 #primary .entry-content table th {
     background-color: #f6f6f6;
@@ -5669,6 +5685,10 @@ body.body-font-5 .wpcf7 textarea {
 }
 @media screen and (max-width: 992px){
     
+    
+        
+    
+    
         .main-navigation ul #menu-item-150 ul {
             top: 0.3em !important;
         } 
@@ -6765,7 +6785,7 @@ div#breadcrumb-list {
 
 
 .wrapper.page-section.no-padding-bottom {
-    margin-top: -15%;
+    margin-top: -12%;
 }
 
 #content {
@@ -6842,15 +6862,21 @@ div#calendar-9 {
 }
 
 @media screen and (max-width: 767px){
+    
 .entry-content svg{
     margin-top: -113px !important;
 }
 
-#content {
-    margin-top: 78px;
-}
-
 #menu-item-150 a, #menu-item-192 a {
     cursor: pointer;
+}
+
+#footermio .svg-inline--fa {
+    margin-left: 90%;
+    /* margin-top: 2%; */
+}
+
+.wrapper.page-section.no-padding-bottom {
+    margin-top: -40% !important;
 }
 }
