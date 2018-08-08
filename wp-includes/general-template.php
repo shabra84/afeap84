@@ -1,4 +1,4 @@
-<?php
+<?php 
 /**
  * General template tags that can go anywhere in a template.
  *
@@ -19,6 +19,11 @@
  *
  * @param string $name The name of the specialised header.
  */
+
+
+
+                
+
 function get_header( $name = null ) {
 	/**
 	 * Fires before the header template file is loaded.
@@ -2062,12 +2067,14 @@ function get_calendar( $initial = true, $echo = true ) {
 		}
 		$newrow = false;
 
+                /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+               
 		if ( $day == gmdate( 'j', $ts ) &&
 			$thismonth == gmdate( 'm', $ts ) &&
 			$thisyear == gmdate( 'Y', $ts ) ) {
-			$calendar_output .= '<td id="today" style="width: 16%;" onmouseout="eventoFuera(this)" onmouseover="evento(this);"><div style="width:200px;height:200px;border:1px dashed black;" id="divevento'.$day.'">AJEDREZ</div>';
+			$calendar_output .= '<td id="today" style="width: 16%;" onmouseout="eventoFuera(this)" onmouseover="evento(this);"><div style="width:200px;height:200px;border:1px dashed black;" id="divevento'.$day.'"></div>';
 		} else {
-			$calendar_output .= '<td id="" style="width: 16%;" onmouseout="eventoFuera(this)" onmouseover="evento(this);"><div style="width:200px;height:200px;border:1px dashed black;" id="divevento'.$day.'">AJEDREZ</div>';
+			$calendar_output .= '<td id="" style="width: 16%;" onmouseout="eventoFuera(this)" onmouseover="evento(this);"><div style="width:200px;height:200px;border:1px dashed black;" id="divevento'.$day.'"></div>';
 		}
 
 		if ( in_array( $day, $daywithpost ) ) {
