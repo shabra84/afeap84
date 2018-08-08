@@ -6785,11 +6785,13 @@ div#breadcrumb-list {
 
 
 .wrapper.page-section.no-padding-bottom {
-    margin-top: -12%;
+    margin-top: -29%;
 }
 
 #content {
     /*margin-top: 131px;*/
+    /*height: 394px;*/
+    height: 100%;
 }
 
 /*Elimino calendario de eventos de las vistas que no son el home*/
