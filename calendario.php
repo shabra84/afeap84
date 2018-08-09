@@ -53,6 +53,7 @@ $ultimoDiaMes=date("d",(mktime(0,0,0,$month+1,1,$year)-1));
  
 $meses=array(1=>"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
 "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
+$colores = array("red","green","blue","yellow","orange");
 ?>
  
 <!DOCTYPE html>
@@ -119,14 +120,47 @@ $meses=array(1=>"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
 	</tr>
 	<tr bgcolor="silver">
 		<?php
+                $conexion = conexionMysql();
+                $sql = "SELECT * FROM eventos";
+                $fechas = consulta($conexion,$sql);
+                $last_cell=$diaSemana+$ultimoDiaMes;
+                $k = 0;
+                $m = 0;
+                $esPrimero = false;
                 
-                
-		$last_cell=$diaSemana+$ultimoDiaMes;
 		// hacemos un bucle hasta 42, que es el máximo de valores que puede
 		// haber... 6 columnas de 7 dias
-		for($i=1;$i<=42;$i++)
-		{
-                    
+		for($i=1;$i<=42;$i++){
+                   
+                    if($k<count($fechas)){
+                        
+                   
+                        //obtenemos mes y dia de los eventos pertenecientes a este
+                        //mes
+                       $mesActualEventos = $month==date("m", 
+                               strtotime($fechas[$k]["fecha_ini"]))?0:$month; 
+                       
+                       $diaActualEventosIni[$k] = date("d",strtotime($fechas[$k]["fecha_ini"]));
+                       $diaActualEventosFin[$k] = date("d",strtotime($fechas[$k]["fecha_fin"])); 
+
+                       
+                       
+                       if($mesActualEventos==0){
+                           
+                           //si el indice es 0 queda en 0 sino le quitamos 1.
+                           $indice = $k<=0?0:$k-1;
+                           
+                           $mesActualEventos = date("m", 
+                               strtotime($fechas[$indice]["fecha_ini"]));
+                            $diaActualEventosIni[$indice] = date("d",strtotime($fechas[$k-1]["fecha_ini"]));
+                            $diaActualEventosFin[$indice] = date("d",strtotime($fechas[$k-1]["fecha_fin"]));
+                            
+                            $k = count($fechas);
+                       }
+                           
+                       $k++;
+                       
+                    }
 			if($i==$diaSemana)
 			{
 				// determinamos en que dia empieza
@@ -139,46 +173,37 @@ $meses=array(1=>"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
                                 
                                 
 			}else{
-				// mostramos el dia
-				if($day==$diaActual)
-					echo "<td  onclick='mostrarOcultar($day);' id='evento$day' class='hoy'>$day</td>";
-				else
-					echo "<td  onclick='mostrarOcultar($day);' id='evento$day'>$day</td>";
-				$day++;
+                            
+                            $colorNum = 0;
+                            
+                            if($month==$mesActualEventos){ 
+                                if($m<=count($diaActualEventosIni)){
+                                    echo $diaActualEventosIni[$m];
+                                    echo $diaActualEventosFin[$m];
+                                    $m++;
+                                }
+                                if($diaActualEventosIni>=$day && $day<=$diaActualEventosFin){
+                                    echo "<td  style='background-color:".$colores[$colorNum]."' onclick='mostrarOcultar($day);' id='evento$day' class='hoy'>$day</td>";
+                                }
+                                else{
+                                    echo "<td  onclick='mostrarOcultar($day);' id='evento$day'>$day</td>";
+                                }
+                                
+                                $day++;
+                                $m++;
+                            }
+                            
 			}
 			// cuando llega al final de la semana, iniciamos una columna nueva
 			if($i%7==0)
 			{
 				echo "</tr><tr>\n";
 			}
-		}
+		
+                }
 	?>
 	</tr>
-       
-        
-            <!--TODO-->
-            
-            <?php
-            
-                    $conexion = conexionMysql();
-                    $sql = "SELECT * FROM eventos";
-                    $datos = consulta($conexion,$sql);
 
-                    for($i=1;$i<=31;$i++){
-                        
-                        if(isset($datos[$i]["eventos_id"])){
-                            echo "<div id='eventos$i'>";
-                            echo "<h5>".$datos[$i]['nombre']."</h5>";
-                            echo "<p>".$datos[$i]['descripcion']."</p>";
-                        }
-                        else
-                            echo "<div id='eventos$i''></div>";
-
-                        echo "</div>";
-                    }
-            
-            ?>
-            
         </div>
 </table>
 </body>
