@@ -14,7 +14,7 @@ function conexionMysql(){
     
 }
 
-/**
+/***
  * Método que realiza una consulta extrayendo los eventos
  */
 function consulta($con,$sql){
