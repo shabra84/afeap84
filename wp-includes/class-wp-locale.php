@@ -361,7 +361,7 @@ class WP_Locale {
 	 * @global array $weekday
 	 * @global array $weekday_initial
 	 * @global array $weekday_abbrev
-	 * @global array $month
+	 * @global array $mes
 	 * @global array $month_abbrev
 	 *
 	 * @since 2.1.0

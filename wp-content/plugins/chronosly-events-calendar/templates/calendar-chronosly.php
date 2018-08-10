@@ -12,12 +12,12 @@ if($offset >= 0) $offset = "-".$offset;
 else $offset = "+".substr($offset, 1);
 date_default_timezone_set("Etc/GMT$offset");
 
-$year = get_query_var("y");
-if(!$year and isset($_REQUEST["y"])) $year = $_REQUEST["y"];
-if(!$year or $year < 0 or $year == "current") $year = date("Y");
-$month = get_query_var("mo");
-if(!$month and isset($_REQUEST["mo"])) $month = $_REQUEST["mo"];
-if($month == "current") $month = date("n");
+$anio = get_query_var("y");
+if(!$anio and isset($_REQUEST["y"])) $anio = $_REQUEST["y"];
+if(!$anio or $anio < 0 or $anio == "current") $anio = date("Y");
+$mes = get_query_var("mo");
+if(!$mes and isset($_REQUEST["mo"])) $mes = $_REQUEST["mo"];
+if($mes == "current") $mes = date("n");
 $week = get_query_var("week");
 if(!$week and isset($_REQUEST["week"])) $week = $_REQUEST["week"];
 if($week == "current") $week = date("W");
@@ -44,8 +44,8 @@ if(!$_REQUEST["js_render"] and !$_REQUEST["action"]) {
 
     $params = "";
     foreach($_REQUEST as $k=>$r){
-        if($k == "y") $r = $year;
-        else if($k == "mo") $r = $month;
+        if($k == "y") $r = $anio;
+        else if($k == "mo") $r = $mes;
         else if($k == "week") $r = $week;
         if($k != "page_id" and $k != "p" and $k != "ch_code" and $k != "post_type" and $k != "chronosly" ) $params .= "&$k=$r";
     }
@@ -77,8 +77,8 @@ if(!$_REQUEST["js_render"] and !$_REQUEST["action"]) {
 } else {
     $calendarId = $_REQUEST["calendarid"];
 
-    $query = Post_Type_Chronosly_Calendar::get_events_by_date($year, $month, $week);
-    $repeated = Post_Type_Chronosly_Calendar::get_events_repeated_by_date($year, $month, $week);
+    $query = Post_Type_Chronosly_Calendar::get_events_by_date($anio, $mes, $week);
+    $repeated = Post_Type_Chronosly_Calendar::get_events_repeated_by_date($anio, $mes, $week);
     $settings =  unserialize(get_option("chronosly-settings"));
     $calendar = $settings["chronosly_calendar_template_default"];
     if(isset($_REQUEST["small"]) and $_REQUEST["small"]) $calendar .=" small";
@@ -94,8 +94,8 @@ if(!$_REQUEST["js_render"] and !$_REQUEST["action"]) {
         echo "<div style='display:none'>
             <div class='ch_from'>".$_REQUEST["from"]."</div>
             <div class='ch_to'>".$_REQUEST["to"]."</div>
-            <input type='hidden' name='y' value='$year'/>
-            <input type='hidden' name='mo' value='$month'/>
+            <input type='hidden' name='y' value='$anio'/>
+            <input type='hidden' name='mo' value='$mes'/>
             <input type='hidden' name='w' value='$week'/>
         </div>";
     }
@@ -126,14 +126,14 @@ if(!$_REQUEST["js_render"] and !$_REQUEST["action"]) {
 
 
 
-                $days = Post_Type_Chronosly_Calendar::get_days_by_date($year, $month, $week, $query, $repeated);
+                $days = Post_Type_Chronosly_Calendar::get_days_by_date($anio, $mes, $week, $query, $repeated);
 
                             // echo "<pre>";print_r($days);
                 $events = $repeats = array();
                 $type = "year";
                 $week_in_sunday = 0;
                 if($Post_Type_Chronosly->settings["chronosly_week_start"] == 1) $week_in_sunday = 1;
-                if($month) $type = "month";
+                if($mes) $type = "month";
                 else if($week) $type = "week";
                 $i = $mi = 0;
                 $m = array(__("January"), __("February"),__("March"), __("April"),__("May"), __("June"),__("July"),__("August"),__("September"),__("October"),__("November"),__("December"));
@@ -151,25 +151,25 @@ if(!$_REQUEST["js_render"] and !$_REQUEST["action"]) {
                 // print_r(date_default_timezone_get());
                 switch($type){
                     case "year":
-                        if($year == date("Y"))$month = date("n");
-                        else $month = date("n", strtotime($year));
-                        if($year == date("Y")) $week =date("W", strtotime($year."-".$month."-".date("d")));
-                        else $week = date("W", strtotime($year."-".$month));
+                        if($anio == date("Y"))$mes = date("n");
+                        else $mes = date("n", strtotime($anio));
+                        if($anio == date("Y")) $week =date("W", strtotime($anio."-".$mes."-".date("d")));
+                        else $week = date("W", strtotime($anio."-".$mes));
                         echo "<div class='chronosly-cal year ch-$calendar'>";
                         if(!isset($_REQUEST["shortcode"])){
                             echo "<div class='ch-navigate'>
-                                <span class='ch-current'>$year</span>
+                                <span class='ch-current'>$anio</span>
                                 <span class='ch-links $hide1'>
-                                     <a href='".(get_option('permalink_structure')?$calendar_url."year_".($year+1)."/":"index.php?post_type=chronosly_calendar&y=".($year+1))."' class='ch-next'><div class='arrow-up'></div>".($year+1)."</a>
-                                     <a href='".(get_option('permalink_structure')?$calendar_url."year_".($year-1)."/":"index.php?post_type=chronosly_calendar&y=".($year-1))."' class='ch-prev'><div class='arrow-down'></div>".($year-1)."</a>
+                                     <a href='".(get_option('permalink_structure')?$calendar_url."year_".($anio+1)."/":"index.php?post_type=chronosly_calendar&y=".($anio+1))."' class='ch-next'><div class='arrow-up'></div>".($anio+1)."</a>
+                                     <a href='".(get_option('permalink_structure')?$calendar_url."year_".($anio-1)."/":"index.php?post_type=chronosly_calendar&y=".($anio-1))."' class='ch-prev'><div class='arrow-down'></div>".($anio-1)."</a>
                                  </span>
 
 
                             <div class='ch-navigate-type $hide2'>
                                 <a href='".(get_option('permalink_structure')?$calendar_url."year_".date("Y"):"index.php?post_type=chronosly_calendar&y=".date("Y"))."' >".__("today", "chronosly")."</a>
-                                <a href='".(get_option('permalink_structure')?$calendar_url."year_$year/":"index.php?post_type=chronosly_calendar&y=$year")."' class='ch-current'>".__("year", "chronosly")."</a>
-                                <a href='".(get_option('permalink_structure')?$calendar_url."year_$year/month_$month":"index.php?post_type=chronosly_calendar&y=$year&mo=$month")."' >".__("month", "chronosly")."</a>
-                                <a href='".(get_option('permalink_structure')?$calendar_url."year_$year/week_$week":"index.php?post_type=chronosly_calendar&y=$year&week=$week")."' >".__("week", "chronosly")."</a>
+                                <a href='".(get_option('permalink_structure')?$calendar_url."year_$anio/":"index.php?post_type=chronosly_calendar&y=$anio")."' class='ch-current'>".__("year", "chronosly")."</a>
+                                <a href='".(get_option('permalink_structure')?$calendar_url."year_$anio/month_$mes":"index.php?post_type=chronosly_calendar&y=$anio&mo=$mes")."' >".__("month", "chronosly")."</a>
+                                <a href='".(get_option('permalink_structure')?$calendar_url."year_$anio/week_$week":"index.php?post_type=chronosly_calendar&y=$anio&week=$week")."' >".__("week", "chronosly")."</a>
 
 
                           </div>
@@ -177,18 +177,18 @@ if(!$_REQUEST["js_render"] and !$_REQUEST["action"]) {
                          ";
                         } else {
                             echo "<div class='ch-navigate'>
-                                <span class='ch-current'>$year</span>
+                                <span class='ch-current'>$anio</span>
                                 <span class='ch-links $hide1'>
-                                     <a href='javascript:ch_load_calendar(\"". (stripos($calendar_url, "?") !== FALSE?"$calendar_url":"$calendar_url?"). "&y=".($year+1)."$params\", $calendarId)' class='ch-next'><div class='arrow-up'></div>".($year+1)."</a>
-                                     <a href='javascript:ch_load_calendar(\"". (stripos($calendar_url, "?") !== FALSE?"$calendar_url":"$calendar_url?"). "&y=".($year-1)."$params\", $calendarId)' class='ch-prev'><div class='arrow-down'></div>".($year-1)."</a>
+                                     <a href='javascript:ch_load_calendar(\"". (stripos($calendar_url, "?") !== FALSE?"$calendar_url":"$calendar_url?"). "&y=".($anio+1)."$params\", $calendarId)' class='ch-next'><div class='arrow-up'></div>".($anio+1)."</a>
+                                     <a href='javascript:ch_load_calendar(\"". (stripos($calendar_url, "?") !== FALSE?"$calendar_url":"$calendar_url?"). "&y=".($anio-1)."$params\", $calendarId)' class='ch-prev'><div class='arrow-down'></div>".($anio-1)."</a>
                                  </span>
 
 
                             <div class='ch-navigate-type $hide2'>
                                 <a href='javascript:ch_load_calendar(\"". (stripos($calendar_url, "?") !== FALSE?"$calendar_url":"$calendar_url?"). "&y=".date("Y")."$params\", $calendarId)' >".__("today", "chronosly")."</a>
-                                <a href='javascript:ch_load_calendar(\"". (stripos($calendar_url, "?") !== FALSE?"$calendar_url":"$calendar_url?"). "&y=$year$params\", $calendarId)' class='ch-current'>".__("year", "chronosly")."</a>
-                                <a href='javascript:ch_load_calendar(\"". (stripos($calendar_url, "?") !== FALSE?"$calendar_url":"$calendar_url?"). "&y=$year&mo=$month$params\", $calendarId)' >".__("month", "chronosly")."</a>
-                                <a href='javascript:ch_load_calendar(\"". (stripos($calendar_url, "?") !== FALSE?"$calendar_url":"$calendar_url?"). "&y=$year&week=$week$params\", $calendarId)' >".__("week", "chronosly")."</a>
+                                <a href='javascript:ch_load_calendar(\"". (stripos($calendar_url, "?") !== FALSE?"$calendar_url":"$calendar_url?"). "&y=$anio$params\", $calendarId)' class='ch-current'>".__("year", "chronosly")."</a>
+                                <a href='javascript:ch_load_calendar(\"". (stripos($calendar_url, "?") !== FALSE?"$calendar_url":"$calendar_url?"). "&y=$anio&mo=$mes$params\", $calendarId)' >".__("month", "chronosly")."</a>
+                                <a href='javascript:ch_load_calendar(\"". (stripos($calendar_url, "?") !== FALSE?"$calendar_url":"$calendar_url?"). "&y=$anio&week=$week$params\", $calendarId)' >".__("week", "chronosly")."</a>
 
 
                           </div>
@@ -198,11 +198,11 @@ if(!$_REQUEST["js_render"] and !$_REQUEST["action"]) {
                         if(!isset($_REQUEST["shortcode"])){
                             echo "<div class='ch-frame'>
                                     <div class='ch-month'>
-                                        <div class='m_tit'><span class='back'>< </span><a href='".(get_option('permalink_structure')?$calendar_url."year_$year/month_1":"index.php?post_type=chronosly_calendar&y=$year&mo=1")."'>".$m[0]."</a></div>";
+                                        <div class='m_tit'><span class='back'>< </span><a href='".(get_option('permalink_structure')?$calendar_url."year_$anio/month_1":"index.php?post_type=chronosly_calendar&y=$anio&mo=1")."'>".$m[0]."</a></div>";
                         } else {
                             echo "<div class='ch-frame'>
                                     <div class='ch-month'>
-                                        <div class='m_tit'><span class='back'>< </span><a href='javascript:ch_load_calendar(\"". (stripos($calendar_url, "?") !== FALSE?"$calendar_url":"$calendar_url?"). "&y=$year&mo=1$params\", $calendarId)'>".$m[0]."</a></div>";
+                                        <div class='m_tit'><span class='back'>< </span><a href='javascript:ch_load_calendar(\"". (stripos($calendar_url, "?") !== FALSE?"$calendar_url":"$calendar_url?"). "&y=$anio&mo=1$params\", $calendarId)'>".$m[0]."</a></div>";
 
                         }
                                  echo "<div class='m_names'>";
@@ -216,9 +216,9 @@ if(!$_REQUEST["js_render"] and !$_REQUEST["action"]) {
                             if(date("n",strtotime($day)) == $mi+1){ //is new month
                                 echo "</div></div></div>";
                                 if(!isset($_REQUEST["shortcode"])){
-                                    echo "<div class='ch-month'><div class='m_tit'><span class='back'>< </span><a href='".(get_option('permalink_structure')?$calendar_url."year_$year/month_".($mi+1):"index.php?post_type=chronosly_calendar&y=$year&mo=".($mi+1))."'>".$m[$mi]."</a><span class='mday'></span></div>";
+                                    echo "<div class='ch-month'><div class='m_tit'><span class='back'>< </span><a href='".(get_option('permalink_structure')?$calendar_url."year_$anio/month_".($mi+1):"index.php?post_type=chronosly_calendar&y=$anio&mo=".($mi+1))."'>".$m[$mi]."</a><span class='mday'></span></div>";
                                 } else {
-                                    echo "<div class='ch-month'><div class='m_tit'><span class='back'>< </span><a href='javascript:ch_load_calendar(\"". (stripos($calendar_url, "?") !== FALSE?"$calendar_url":"$calendar_url?"). "&y=$year&mo=".($mi+1)."$params\", $calendarId)'>".$m[$mi]."</a><span class='mday'></span></div>";
+                                    echo "<div class='ch-month'><div class='m_tit'><span class='back'>< </span><a href='javascript:ch_load_calendar(\"". (stripos($calendar_url, "?") !== FALSE?"$calendar_url":"$calendar_url?"). "&y=$anio&mo=".($mi+1)."$params\", $calendarId)'>".$m[$mi]."</a><span class='mday'></span></div>";
                                 }
                                 echo "<div class='m_names'>";
                                 foreach($d as $n) echo "<span>".$n."</span>";
@@ -260,7 +260,7 @@ if(!$_REQUEST["js_render"] and !$_REQUEST["action"]) {
 
                                 }
                             }
-                            if(date("Y",strtotime($day)) != $year ) $cont .= " no_show";
+                            if(date("Y",strtotime($day)) != $anio ) $cont .= " no_show";
                             if(date("d-m-Y", strtotime($day)) == date("d-m-Y") ) $cont .= " today";
                             echo "</div><div class='ch-foot $cont'";
                             if($cant) echo "title='".__("view")." +$cant'";
@@ -276,14 +276,14 @@ if(!$_REQUEST["js_render"] and !$_REQUEST["action"]) {
                     break;
                     case "month":
                         echo "<div class='chronosly-cal ch-month ch-$calendar'>";
-                        if($year == date("Y")) $week = date("W", strtotime($year."-".$month."-".date("d")));
-                        else $week = date("W", strtotime($year."-".$month));
-                        $next = strtotime($year."-".$month." +1 month");
-                        $prev = strtotime($year."-".$month." -1 month");
+                        if($anio == date("Y")) $week = date("W", strtotime($anio."-".$mes."-".date("d")));
+                        else $week = date("W", strtotime($anio."-".$mes));
+                        $next = strtotime($anio."-".$mes." +1 month");
+                        $prev = strtotime($anio."-".$mes." -1 month");
 
                         if(!isset($_REQUEST["shortcode"])){
                             echo "<div class='ch-navigate'>
-                                <span class='ch-current'>".__(date("F", strtotime($year."-".$month))).", $year</span>
+                                <span class='ch-current'>".__(date("F", strtotime($anio."-".$mes))).", $anio</span>
                                  <span class='ch-links $hide1'>
                                      <a href='".(get_option('permalink_structure')?$calendar_url."year_".date("Y", $next)."/month_".date("n", $next):"index.php?post_type=chronosly_calendar&y=".date("Y", $next)."&mo=".date("n", $next))."' class='ch-next'><div class='arrow-up'></div>".__(date("F", $next)).", ".date("Y", $next)."</a>
                                     <a href='".(get_option('permalink_structure')?$calendar_url."year_".date("Y", $prev)."/month_".date("n", $prev):"index.php?post_type=chronosly_calendar&y=".date("Y", $prev)."&mo=".date("n", $prev))."' class='ch-prev'><div class='arrow-down'></div>".__(date("F", $prev)).", ".date("Y", $prev)."</a>
@@ -293,17 +293,17 @@ if(!$_REQUEST["js_render"] and !$_REQUEST["action"]) {
                                <div class='ch-navigate-type $hide2'>
                                     <a href='".(get_option('permalink_structure')?$calendar_url."year_".date("Y")."/month_".date("n"):"index.php?post_type=chronosly_calendar&y=".date("Y")."&mo=".date("n"))."' >".__("today", "chronosly")."</a>
 
-                                        <a href='".(get_option('permalink_structure')?$calendar_url."year_$year":"index.php?post_type=chronosly_calendar&y=$year")."' >".__("year", "chronosly")."</a>
-                                        <a href='".(get_option('permalink_structure')?$calendar_url."year_$year/month_$month":"index.php?post_type=chronosly_calendar&y=$year&mo=$month")."' class='ch-current' >".__("month", "chronosly")."</a>
+                                        <a href='".(get_option('permalink_structure')?$calendar_url."year_$anio":"index.php?post_type=chronosly_calendar&y=$anio")."' >".__("year", "chronosly")."</a>
+                                        <a href='".(get_option('permalink_structure')?$calendar_url."year_$anio/month_$mes":"index.php?post_type=chronosly_calendar&y=$anio&mo=$mes")."' class='ch-current' >".__("month", "chronosly")."</a>
 
-                                        <a href='".(get_option('permalink_structure')?$calendar_url."year_$year/week_$week":"index.php?post_type=chronosly_calendar&y=$year&week=$week")."' >".__("week", "chronosly")."</a>
+                                        <a href='".(get_option('permalink_structure')?$calendar_url."year_$anio/week_$week":"index.php?post_type=chronosly_calendar&y=$anio&week=$week")."' >".__("week", "chronosly")."</a>
 
                                   </div>
                           </div>
                           ";
                         } else {
                             echo "<div class='ch-navigate'>
-                                <span class='ch-current'>".__(date("F", strtotime($year."-".$month))).", $year</span>
+                                <span class='ch-current'>".__(date("F", strtotime($anio."-".$mes))).", $anio</span>
                                  <span class='ch-links $hide1'>
                                      <a href='javascript:ch_load_calendar(\"". (stripos($calendar_url, "?") !== FALSE?"$calendar_url":"$calendar_url?"). "&y=".date("Y", $next)."&mo=".date("n", $next)."$params\", $calendarId)' class='ch-next'><div class='arrow-up'></div>".__(date("F", $next)).", ".date("Y", $next)."</a>
                                     <a href='javascript:ch_load_calendar(\"". (stripos($calendar_url, "?") !== FALSE?"$calendar_url":"$calendar_url?"). "&y=".date("Y", $prev)."&mo=".date("n", $prev)."$params\", $calendarId)' class='ch-prev'><div class='arrow-down'></div>".__(date("F", $prev)).", ".date("Y", $prev)."</a>
@@ -313,10 +313,10 @@ if(!$_REQUEST["js_render"] and !$_REQUEST["action"]) {
                                <div class='ch-navigate-type $hide2'>
                                     <a href='javascript:ch_load_calendar(\"". (stripos($calendar_url, "?") !== FALSE?"$calendar_url":"$calendar_url?"). "&y=".date("Y")."&mo=".date("n").", $calendarId)' >".__("today", "chronosly")."</a>
 
-                                        <a href='javascript:ch_load_calendar(\"". (stripos($calendar_url, "?") !== FALSE?"$calendar_url":"$calendar_url?"). "&y=$year$params\", $calendarId)' >".__("year", "chronosly")."</a>
-                                        <a href='javascript:ch_load_calendar(\"". (stripos($calendar_url, "?") !== FALSE?"$calendar_url":"$calendar_url?"). "&y=$year&mo=$month$params\", $calendarId)' class='ch-current' >".__("month", "chronosly")."</a>
+                                        <a href='javascript:ch_load_calendar(\"". (stripos($calendar_url, "?") !== FALSE?"$calendar_url":"$calendar_url?"). "&y=$anio$params\", $calendarId)' >".__("year", "chronosly")."</a>
+                                        <a href='javascript:ch_load_calendar(\"". (stripos($calendar_url, "?") !== FALSE?"$calendar_url":"$calendar_url?"). "&y=$anio&mo=$mes$params\", $calendarId)' class='ch-current' >".__("month", "chronosly")."</a>
 
-                                        <a href='javascript:ch_load_calendar(\"". (stripos($calendar_url, "?") !== FALSE?"$calendar_url":"$calendar_url?"). "&y=$year&week=$week$params\", $calendarId)' >".__("week", "chronosly")."</a>
+                                        <a href='javascript:ch_load_calendar(\"". (stripos($calendar_url, "?") !== FALSE?"$calendar_url":"$calendar_url?"). "&y=$anio&week=$week$params\", $calendarId)' >".__("week", "chronosly")."</a>
 
                                   </div>
                           </div>
@@ -331,7 +331,7 @@ if(!$_REQUEST["js_render"] and !$_REQUEST["action"]) {
                         foreach($days as $day=>$ev){
                             $cont = "";
                             if(is_array($ev)) $cont = "with_events";
-                            if(date("n",strtotime($day)) != $month ) $cont .= " no_show";
+                            if(date("n",strtotime($day)) != $mes ) $cont .= " no_show";
 
                             if(date("d-m-Y", strtotime($day)) == date("d-m-Y") ) $cont .= " today";
                             echo "<div class='ch-content $cont'>";
@@ -375,9 +375,9 @@ if(!$_REQUEST["js_render"] and !$_REQUEST["action"]) {
                     break;
                     case "week":
                        echo "<div class='chronosly-cal week  ch-$calendar'>";
-                        $w =strtotime($year."W".str_pad($week, 2, '0', STR_PAD_LEFT));
-                        $next =$next1 = strtotime($year."W".str_pad($week, 2, '0', STR_PAD_LEFT)." +1 week");
-                        $prev = $prev1 = strtotime($year."W".str_pad($week, 2, '0', STR_PAD_LEFT)." -1 week");
+                        $w =strtotime($anio."W".str_pad($week, 2, '0', STR_PAD_LEFT));
+                        $next =$next1 = strtotime($anio."W".str_pad($week, 2, '0', STR_PAD_LEFT)." +1 week");
+                        $prev = $prev1 = strtotime($anio."W".str_pad($week, 2, '0', STR_PAD_LEFT)." -1 week");
 
 
                         if($settings["chronosly_week_start"] == 1) {
@@ -385,7 +385,7 @@ if(!$_REQUEST["js_render"] and !$_REQUEST["action"]) {
                             $next -= (60*60*24);
                             $prev -= (60*60*24);
                         }
-                        $month = date("n", $w);
+                        $mes = date("n", $w);
                         if(!isset($_REQUEST["shortcode"])){
                             $tit = "";
                             if(date("d", $w) > date("d", strtotime("+6 day",$w))) $tit = __(substr(date("F", $w), 0, 3))." ";
@@ -394,7 +394,7 @@ if(!$_REQUEST["js_render"] and !$_REQUEST["action"]) {
                             else $tit .= __(date("F", strtotime("+6 day",$w)));
                             echo "<div class='ch-navigate'>
                             <div class='cal-left'>
-                                <span class='ch-current'>".$tit.", $year</span>
+                                <span class='ch-current'>".$tit.", $anio</span>
                                 <span class='ch-links $hide1'>";
                                     if(date("W", $next1) < 10) echo "<a href='".(get_option('permalink_structure')?$calendar_url."year_".date("Y", strtotime("+6 day",$next1))."/week_".date("W", $next1):"index.php?post_type=chronosly_calendar&y=".date("Y", strtotime("+6 day",$next))."&week=".date("W", $next1))."' class='ch-next'><div class='arrow-up'></div>".date("d", $next)." - ".date("d", strtotime("+6 day", $next))." ".__(date("F", strtotime("+6 day", $next))).", ".date("Y", strtotime("+6 day", $next))."</a>";
                                     else echo "<a href='".(get_option('permalink_structure')?$calendar_url."year_".date("Y", $next1)."/week_".date("W", $next1):"index.php?post_type=chronosly_calendar&y=".date("Y", $next)."&week=".date("W", $next1))."' class='ch-next'><div class='arrow-up'></div>".date("d", $next)." - ".date("d", strtotime("+6 day", $next))." ".__(date("F", strtotime("+6 day", $next))).", ".date("Y", strtotime("+6 day", $next))."</a>";
@@ -402,16 +402,16 @@ if(!$_REQUEST["js_render"] and !$_REQUEST["action"]) {
                                 </span></div>
                                 <div class='ch-navigate-type cal-right $hide2'>
                                     <a href='".(get_option('permalink_structure')?$calendar_url."year_".date("Y")."/week_".date("W"):"index.php?post_type=chronosly_calendar&y=".date("Y")."&week=".date("W"))."' >".__("today", "chronosly")."</a>
-                                    <a href='".(get_option('permalink_structure')?$calendar_url."year_$year":"index.php?post_type=chronosly_calendar&y=$year")."' >".__("year", "chronosly")."</a>
-                                    <a href='".(get_option('permalink_structure')?$calendar_url."year_$year/month_$month":"index.php?post_type=chronosly_calendar&y=$year&mo=$month")."' >".__("month", "chronosly")."</a>
-                                    <a href='".(get_option('permalink_structure')?$calendar_url."year_$year/week_$week":"index.php?post_type=chronosly_calendar&y=$year&week=$week")."' class='ch-current'>".__("week", "chronosly")."</a>
+                                    <a href='".(get_option('permalink_structure')?$calendar_url."year_$anio":"index.php?post_type=chronosly_calendar&y=$anio")."' >".__("year", "chronosly")."</a>
+                                    <a href='".(get_option('permalink_structure')?$calendar_url."year_$anio/month_$mes":"index.php?post_type=chronosly_calendar&y=$anio&mo=$mes")."' >".__("month", "chronosly")."</a>
+                                    <a href='".(get_option('permalink_structure')?$calendar_url."year_$anio/week_$week":"index.php?post_type=chronosly_calendar&y=$anio&week=$week")."' class='ch-current'>".__("week", "chronosly")."</a>
 
                                  </div>
                              </div>
                             ";
                          } else {
                             echo "<div class='ch-navigate'>
-                                <span class='ch-current'>".date("d", $w)." - ".date("d", strtotime("+6 day",$w))." ".__(date("F", strtotime("+6 day",$w))).", $year</span>
+                                <span class='ch-current'>".date("d", $w)." - ".date("d", strtotime("+6 day",$w))." ".__(date("F", strtotime("+6 day",$w))).", $anio</span>
                                 <span class='ch-links $hide1'>";
                                    if(date("W", $next1) < 10) echo "<a href='javascript:ch_load_calendar(\"". (stripos($calendar_url, "?") !== FALSE?"$calendar_url":"$calendar_url?"). "&y=".date("Y", strtotime("+6 day",$next))."&week=".date("W", $next1)."$params\", $calendarId)' class='ch-next'><div class='arrow-up'></div>".date("d", $next)." - ".date("d", strtotime("+6 day", $next))." ".__(date("F", strtotime("+6 day", $next))).", ".date("Y", strtotime("+6 day", $next))."</a>";
                                     else echo "<a href='javascript:ch_load_calendar(\"". (stripos($calendar_url, "?") !== FALSE?"$calendar_url":"$calendar_url?"). "&y=".date("Y",$next)."&week=".date("W", $next1)."$params\", $calendarId)' class='ch-next'><div class='arrow-up'></div>".date("d", $next)." - ".date("d", strtotime("+6 day", $next))." ".__(date("F", strtotime("+6 day", $next))).", ".date("Y", strtotime("+6 day", $next))."</a>";
@@ -419,9 +419,9 @@ if(!$_REQUEST["js_render"] and !$_REQUEST["action"]) {
                                 </span>
                                 <div class='ch-navigate-type $hide2'>
                                     <a href='javascript:ch_load_calendar(\"". (stripos($calendar_url, "?") !== FALSE?"$calendar_url":"$calendar_url?"). "&y=".date("Y")."&week=".date("W")."$params\", $calendarId)' >".__("today", "chronosly")."</a>
-                                    <a href='javascript:ch_load_calendar(\"". (stripos($calendar_url, "?") !== FALSE?"$calendar_url":"$calendar_url?"). "&y=$year$params\", $calendarId)' >".__("year", "chronosly")."</a>
-                                    <a href='javascript:ch_load_calendar(\"". (stripos($calendar_url, "?") !== FALSE?"$calendar_url":"$calendar_url?"). "&y=$year&mo=$month$params\", $calendarId)' >".__("month", "chronosly")."</a>
-                                    <a href='javascript:ch_load_calendar(\"". (stripos($calendar_url, "?") !== FALSE?"$calendar_url":"$calendar_url?"). "&y=$year&week=$week$params\", $calendarId)' class='ch-current'>".__("week", "chronosly")."</a>
+                                    <a href='javascript:ch_load_calendar(\"". (stripos($calendar_url, "?") !== FALSE?"$calendar_url":"$calendar_url?"). "&y=$anio$params\", $calendarId)' >".__("year", "chronosly")."</a>
+                                    <a href='javascript:ch_load_calendar(\"". (stripos($calendar_url, "?") !== FALSE?"$calendar_url":"$calendar_url?"). "&y=$anio&mo=$mes$params\", $calendarId)' >".__("month", "chronosly")."</a>
+                                    <a href='javascript:ch_load_calendar(\"". (stripos($calendar_url, "?") !== FALSE?"$calendar_url":"$calendar_url?"). "&y=$anio&week=$week$params\", $calendarId)' class='ch-current'>".__("week", "chronosly")."</a>
 
                                  </div>
                              </div>

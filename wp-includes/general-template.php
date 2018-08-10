@@ -1898,7 +1898,7 @@ function calendar_week_mod($num) {
  * @global wpdb      $wpdb
  * @global int       $m
  * @global int       $monthnum
- * @global int       $year
+ * @global int       $anio
  * @global WP_Locale $wp_locale
  * @global array     $posts
  *
@@ -1907,9 +1907,9 @@ function calendar_week_mod($num) {
  * @return string|void String when retrieving.
  */
 function get_calendar( $initial = true, $echo = true ) {
-	global $wpdb, $m, $monthnum, $year, $wp_locale, $posts;
+	global $wpdb, $m, $monthnum, $anio, $wp_locale, $posts;
 
-	$key = md5( $m . $monthnum . $year );
+	$key = md5( $m . $monthnum . $anio );
 	$cache = wp_cache_get( 'get_calendar', 'calendar' );
 
 	if ( $cache && is_array( $cache ) && isset( $cache[ $key ] ) ) {
@@ -1946,9 +1946,9 @@ function get_calendar( $initial = true, $echo = true ) {
 	$ts = current_time( 'timestamp' );
 
 	// Let's figure out when we are
-	if ( ! empty( $monthnum ) && ! empty( $year ) ) {
+	if ( ! empty( $monthnum ) && ! empty( $anio ) ) {
 		$thismonth = zeroise( intval( $monthnum ), 2 );
-		$thisyear = (int) $year;
+		$thisyear = (int) $anio;
 	} elseif ( ! empty( $w ) ) {
 		// We need to get the month from MySQL
 		$thisyear = (int) substr( $m, 0, 4 );
