@@ -19,7 +19,7 @@ and open the template in the editor.
 	</tr>
         <?php
         //Constantes
-        define("sql" , "SELECT * FROM eventos where date_format(fecha_ini,'%m')=date_format(now(),'%m')");
+        define("sql" , "SELECT * FROM eventos where date_format(fecha_ini,'%m')=date_format(now(),'%m') order by 3");
         define("servidor_ip" , "127.0.0.1");
         define("usuario" , "root");
         define("password" , "");
@@ -55,48 +55,48 @@ and open the template in the editor.
         
         //$i es la posicion que empieza en el calendario (casilla)
         for($i=1;$i<=42;$i++){
+            
+            //almacenamos 0 si no hay eventos
+                $diaini[$i-1] = 0;
+                $diafin[$i-1] = 0;
+                
+                
  
             if($i>=$diaSemana && $i<$last_cell){
                         
                 //calculamos la posicion actual en la que empieza el evento
                 $posicionActual = ($diaSemana+($i-1)-2);
                 
-                //almacenamos 0 si no hay eventos
-                $diaini[$i-1] = 0;
-                $diafin[$i-1] = 0;
-                
-                echo "diaA=$day - diaB=".intval(date_format(
-                        new DateTime($fechas[$m]["fecha_ini"]),'d'))." - mes=$mes en la posicion=$posicionActual</br>";
-                
-                
-
                 //almacenamos eventos si estamos en el mismo mes
-                if(($day==intval(date_format(
-                        new DateTime($fechas[$m]["fecha_ini"]),'d'))) &&
-                        ($mes==intval(date_format(
-                        new DateTime($fechas[$m]["fecha_ini"]),'m')))){
+                if(($day>=intval(date_format(
+                        new DateTime($fechas[$m]["fecha_ini"]),'d'))
+                        &&
+                        ($day<=intval(date_format(
+                        new DateTime($fechas[$m]["fecha_fin"]),'d')
+                        )))){
                     
-                    
-                   echo "almacena valor</br>"; 
                     
                     //almacenamos el dia inicial y final de los eventos a añadir
                     $diaini[$i-1] = intval(date_format(new DateTime($fechas[$m]["fecha_ini"]),'d'));
                     $diafin[$i-1] = intval(date_format(new DateTime($fechas[$m]["fecha_fin"]),'d'));
                     
+                    //alamaceno la posicion final del evento
+                    $ultimoDia = ($posicionActual+($diafin[$i-1]-$diaini[$i-1]));
+                
                     //para que no se vaya de rango contamos elementos del array
                     if($m<count($fechas)-1){
                         $m++;
                     }
                 }
                 
-
+                
                 //si esta en un rango de dias lo señalo en color en el calendario
-                if(($i>=$posicionActual) && (($i<=($posicionActual+$diafin[$i-1]-1)
-                        ))){
+                if(($diaini!=0) && (isset($ultimoDia)) &&
+                        ($i>=$posicionActual) && ($i<=$ultimoDia)){
 
+                    
                     $html.="<td style='background:red'>$day</td>";
                         
-                    
                 }
                 else{
                     $html.="<td>$day</td>";
