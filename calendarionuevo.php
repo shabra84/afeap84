@@ -49,6 +49,7 @@ and open the template in the editor.
         $day = 1;
         $m = 0;
         $posicion = null;
+        $indiceColor = 0;
         
         //extraemos datos y lo almacenamos 
         $fechas = consulta($conexion,sql);
@@ -90,16 +91,26 @@ and open the template in the editor.
                 }
                 
                 
+                
                 //si esta en un rango de dias lo señalo en color en el calendario
                 if(($diaini!=0) && (isset($ultimoDia)) &&
                         ($i>=$posicionActual) && ($i<=$ultimoDia)){
-
+       
                     
-                    $html.="<td style='background:red'>$day</td>";
+                    $html.="<td style='background:".$colores[$indiceColor]."'>$day</td>";
+                    
+
                         
                 }
                 else{
                     $html.="<td>$day</td>";
+                    
+                    //indice de los colores
+                    $indiceColor++;
+                    
+                    //si es mayor empiezo de nuevo
+                    if($indiceColor>count($colores)-1)
+                        $indiceColor = 0;
                 }
                 
                 $day++;
