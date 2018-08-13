@@ -8,114 +8,151 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title></title>
+        <script type="text/javascript" src="libreriasjs/eventos.js"></script>
     </head>
     <body>
-        <?php
-        //añadimos las librerias
-        include("librerias/funciones.php");
-       
-        //variables necesarias
-        //fecha actual
-        $mes=date("n");
-        $anio=date("Y");
-        $diaActual=date("j");
- 
-        # Obtenemos el dia de la semana del primer dia
-        # Devuelve 0 para domingo, 6 para sabado
-        $diaSemana=date("w",mktime(0,0,0,$mes,1,$anio));
-
-        # Obtenemos el ultimo dia del mes
-        $ultimoDiaMes=date("d",(mktime(0,0,0,$mes+1,1,$anio)-1));
-
-        //diccionarios con los dias del mes y colores de las celdas
-        $meses=array(1=>"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
-        "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
-        
-        $colores = array("red","green","blue","yellow","orange");
-        ?>
         <!-- HTML -->
         <table id="calendar">
-	<caption><?php echo $meses[$mes]." ".$anio?></caption>
+	<caption></caption>
 	<tr>
 		<th>Lun</th><th>Mar</th><th>Mie</th><th>Jue</th>
 		<th>Vie</th><th>Sab</th><th>Dom</th>
 	</tr>
-	<tr bgcolor="silver">
-		<?php
-                //creamos la conexion a mysql con la consulta
-                $conexion = conexionMysql();
-                $sql = "SELECT * FROM eventos where date_format(fecha_ini,'%m')=date_format(now(),'%m')";
-                //extraemos datos y lo almacenamos 
-                $fechas = consulta($conexion,$sql);
-                $last_cell=$diaSemana+$ultimoDiaMes;
-                
-                $m = 0;
-                $fechaini = intval(date_format(new DateTime($fechas[0]["fecha_ini"]),'d'));
-                $fechafin = intval(date_format(new DateTime($fechas[0]["fecha_fin"]),'d'));
-                $html = "";
-                
+        <?php
+        //datos de conexion a la base de datos
+        define("sql" , "SELECT * FROM eventos where date_format(fecha_ini,'%m')=date_format(now(),'%m') order by 3");
+        define("servidor_ip" , "127.0.0.1");
+        define("usuario" , "root");
+        define("password" , "");
+        define("nombrebase", "afaepeventos");
+        
+        //agragamos la libreria con funciones para la conexión a la base de datos
+        include("librerias/funciones.php");
+ 
+        $html = "";
+        
+        //fecha actual
+        $mes=date("n");
+        $anio=date("Y");
+        $diaActual=date("j");
+       
+        //array diccionario con colores
+        $colores = array("red","green","yellow","pink");
+        
+        //posicion de la celda en la que empieza y final
+        $diaSemana=date("w",mktime(0,0,0,$mes,1,$anio));
+        $ultimoDiaMes=date("d",(mktime(0,0,0,$mes+1,1,$anio)-1));
+        $last_cell=$diaSemana+$ultimoDiaMes;
 
+        //conexión y extracción de datos en un array asociativo
+        $conexion = conexionMysql(servidor_ip,usuario,password,nombrebase);       
+        
+        $day = 1;
+        $m = 0;
+        $posicion = null;
+        $indiceColor = 0;
+        
+        //indice de los eventos a presentar en html
+        $k = 0;
+        
+        //extraemos datos y lo almacenamos 
+        $fechas = consulta($conexion,sql);
+        
+        //$i es la posicion que empieza en el calendario (casilla)
+        for($i=1;$i<=42;$i++){
+            
+            //almacenamos 0 si no hay eventos
+                $diaini[$i-1] = 0;
+                $diafin[$i-1] = 0;
                 
-		// hacemos un bucle hasta 42, que es el máximo de valores que puede
-		// haber... 6 columnas de 7 dias
-		for($i=1;$i<=42;$i++){
+                
+ 
+            if($i>=$diaSemana && $i<$last_cell){
                         
-			if($i==$diaSemana)
-			{
-				// determinamos en que dia empieza
-				$day=1;
-			}
-			if($i<$diaSemana || $i>=$last_cell)
-			{
-				// celca vacia
-				$html.="<td>&nbsp;</td>";
-                                
-                                
-			}else{
-                            
-                            if(($fechaini>$m && $m<$fechafin) && $m<count($fechas)){
-                                $fechaini = intval(date_format(new DateTime($fechas[$m]["fecha_ini"]),'d'));
-                                $fechafin = intval(date_format(new DateTime($fechas[$m]["fecha_fin"]),'d'));
-                                
-                                if($m%7==0)
-                                        $html.="<tr>";
-                                
-                                for($n=$fechaini ;$n<=$fechafin;$n++){
-                                                                        
-                                    $html.="<td  style='background-color:red;' onclick='mostrarOcultar($n);' id='evento$n' class='hoy'>$n</td>";
-
-                                }
-                                
-                                if($m%7==0)
-                                        $html.="</tr>";
-                               
-                                $m++;
-                            }
-                            else{
-                            
-                            $html.= "<td  onclick='mostrarOcultar($day);' id='evento$day'>$day</td>";
-                            
-                            $day++;
-                            }
-                        }
-                        
-                         /*
-// cuando llega al final de la semana, iniciamos una columna nueva
-			if($i%7==0)
-			{
-				$html.="</tr><tr>\n";
-			}*/
-                        
-                        
-                        
-                        //pinto calendario
-                        echo $html;
-		
+                //calculamos la posicion actual en la que empieza el evento
+                $posicionActual = ($diaSemana+($i-1)-2);
+                
+                //almacenamos eventos si estamos en el mismo mes
+                if(($day>=intval(date_format(
+                        new DateTime($fechas[$m]["fecha_ini"]),'d'))
+                        &&
+                        ($day<=intval(date_format(
+                        new DateTime($fechas[$m]["fecha_fin"]),'d')
+                        )))){
+                    
+                    
+                    //almacenamos el dia inicial y final de los eventos a añadir
+                    $diaini[$i-1] = intval(date_format(new DateTime($fechas[$m]["fecha_ini"]),'d'));
+                    $diafin[$i-1] = intval(date_format(new DateTime($fechas[$m]["fecha_fin"]),'d'));
+                    
+                    //alamaceno la posicion final del evento
+                    $ultimoDia = ($posicionActual+($diafin[$i-1]-$diaini[$i-1]));
+                
+                    //para que no se vaya de rango contamos elementos del array
+                    if($m<count($fechas)-1){
+                        $m++;
+                    }
                 }
-	?>
-	</tr>
+                
+                
+                
+                //si esta en un rango de dias lo señalo en color en el calendario
+                if(($diaini!=0) && (isset($ultimoDia)) &&
+                        ($i>=$posicionActual) && ($i<=$ultimoDia)){
+       
+ 
+                    $html.="<td id='$day' style='background:".$colores[$indiceColor]."'>$day</td>";
 
-        </div>
-    </table>
+                    //incrustamos un div donde va la información del evento
+                    $htmleventos .= "<div style='display:none;' id='evento$day'>"
+                    . "<h7>".$fechas[$k]["nombre"]."</h7>"
+                    . ""
+                    . ""
+                    . ""
+                    . ""
+                    . ""
+                    . "</div>";
+                    
+                    //para que no se vaya de rango contamos elementos del array
+                    if($k<count($fechas)-1){
+                        $k++;
+                    }
+                }
+                else{
+                    $html.="<td id='$day'>$day</td>";
+                    
+                    //indice de los colores
+                    $indiceColor++;
+                    
+                    //si es mayor empiezo de nuevo
+                    if($indiceColor>count($colores)-1)
+                        $indiceColor = 0;
+                }
+                
+                $day++;
+            }
+            else{
+                $html.="<td></td>";
+            }
+            
+            
+            
+            if($i%7==0){
+                $html.="<tr></tr>";
+            }
+          
+            //incrustamos la tabla
+            if($i==42)
+                $html .= "</table>";
+ 
+        }
+   
+        //asignamos el html del evento a todo el codigo html
+        $html.=$htmleventos;
+        
+        //pintamos la web
+        echo $html;
+        
+        ?>
     </body>
 </html>

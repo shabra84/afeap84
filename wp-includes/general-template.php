@@ -1907,14 +1907,23 @@ function calendar_week_mod($num) {
  * @return string|void String when retrieving.
  */
 function get_calendar( $initial = true, $echo = true ) {
-	global $wpdb, $m, $monthnum, $anio, $wp_locale, $posts;
+    
+    //ponemos cabecera
+    echo "<h6 style='margin:0 auto;display:table;color:#8f8c9d'>Calendario de eventos</h6>";
+    
+    
+    //añadimos calendario
+    include("calendario.php");
+    
+    
+	/*global $wpdb, $m, $monthnum, $anio, $wp_locale, $posts;
 
 	$key = md5( $m . $monthnum . $anio );
 	$cache = wp_cache_get( 'get_calendar', 'calendar' );
 
 	if ( $cache && is_array( $cache ) && isset( $cache[ $key ] ) ) {
 		/** This filter is documented in wp-includes/general-template.php */
-		$output = apply_filters( 'get_calendar', $cache[ $key ] );
+		/*$output = apply_filters( 'get_calendar', $cache[ $key ] );
 
 		if ( $echo ) {
 			echo $output;
@@ -1969,8 +1978,9 @@ function get_calendar( $initial = true, $echo = true ) {
 
 	$unixmonth = mktime( 0, 0 , 0, $thismonth, 1, $thisyear );
 	$last_day = date( 't', $unixmonth );
-
+*/
 	// Get the next and previous month and year with at least one post
+        /*
 	$previous = $wpdb->get_row("SELECT MONTH(post_date) AS month, YEAR(post_date) AS year
 		FROM $wpdb->posts
 		WHERE post_date < '$thisyear-$thismonth-01'
@@ -1983,8 +1993,8 @@ function get_calendar( $initial = true, $echo = true ) {
 		AND post_type = 'post' AND post_status = 'publish'
 			ORDER BY post_date ASC
 			LIMIT 1");
-
-	/* translators: Calendar caption: 1: month name, 2: 4-digit year */
+*/
+	/* translators: Calendar caption: 1: month name, 2: 4-digit year *//*
 	$calendar_caption = _x('%1$s %2$s', 'calendar caption');
 	$calendar_output = '<table id="wp-calendar">
 	<caption>' . sprintf(
@@ -2066,9 +2076,9 @@ function get_calendar( $initial = true, $echo = true ) {
 			$calendar_output .= "\n\t</tr>\n\t<tr>\n\t\t";
 		}
 		$newrow = false;
-
+*/
                 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-               
+               /*
 		if ( $day == gmdate( 'j', $ts ) &&
 			$thismonth == gmdate( 'm', $ts ) &&
 			$thisyear == gmdate( 'Y', $ts ) ) {
@@ -2081,18 +2091,18 @@ function get_calendar( $initial = true, $echo = true ) {
 			// any posts today?
 			$date_format = date( _x( 'F j, Y', 'daily archives date format' ), strtotime( "{$thisyear}-{$thismonth}-{$day}" ) );
 			/* translators: Post calendar label. 1: Date */
-			$label = sprintf( __( 'Posts published on %s' ), $date_format );
+			/*$label = sprintf( __( 'Posts published on %s' ), $date_format );
 			$calendar_output .= sprintf(
 				'<a href="%s" aria-label="%s">%s</a>',
 				get_day_link( $thisyear, $thismonth, $day ),
 				esc_attr( $label ),
 				$day
 			);
-		} else {
+		} else {*//*
 			$calendar_output .= $day;
 		}
-		$calendar_output .= '</td>';
-
+		$calendar_output .= '</td>';*/
+/*
 		if ( 6 == calendar_week_mod( date( 'w', mktime(0, 0 , 0, $thismonth, $day, $thisyear ) ) - $week_begins ) ) {
 			$newrow = true;
 		}
@@ -2106,20 +2116,21 @@ function get_calendar( $initial = true, $echo = true ) {
 
 	$cache[ $key ] = $calendar_output;
 	wp_cache_set( 'get_calendar', $cache, 'calendar' );
-
-	if ( $echo ) {
+*/
+	/*if ( $echo ) *//*{
 		/**
 		 * Filters the HTML calendar output.
 		 *
 		 * @since 3.0.0
 		 *
 		 * @param string $calendar_output HTML output of the calendar.
-		 */
+		 *//*
 		echo apply_filters( 'get_calendar', $calendar_output );
 		return;
-	}
+	}*/
 	/** This filter is documented in wp-includes/general-template.php */
-	return apply_filters( 'get_calendar', $calendar_output );
+	/*return apply_filters( 'get_calendar', $calendar_output );
+  */
 }
 
 /**
