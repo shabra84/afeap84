@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
+Hecho por Fernando Mangas
 -->
 <html>
     <head>
@@ -25,6 +23,7 @@ and open the template in the editor.
         define("usuario" , "root");
         define("password" , "");
         define("nombrebase", "afaepeventos");
+        define("dimensionDias",31);
         
         //agragamos la libreria con funciones para la conexión a la base de datos
         include("librerias/funciones.php");
@@ -32,12 +31,12 @@ and open the template in the editor.
         $html = "";
         
         //fecha actual
-        $mes=date("n");
+        $mes=date("m");
         $anio=date("Y");
         $diaActual=date("j");
        
         //array diccionario con colores
-        $colores = array("red","green","yellow","pink");
+        $colores = array("#42a12c");
         
         //posicion de la celda en la que empieza y final
         $diaSemana=date("w",mktime(0,0,0,$mes,1,$anio));
@@ -51,29 +50,39 @@ and open the template in the editor.
         $m = 0;
         $posicion = null;
         $indiceColor = 0;
+        $z = 0;
+        
+        //incializamos html eventos
+        $htmleventos = "";
+        
+        //controla el cambio de color
+        $cambiar = false;
+        
+        //importante para ver si es el mismo evento
+        $ant = "";
         
         //indice de los eventos a presentar en html
         $k = 0;
         
         //extraemos datos y lo almacenamos 
-        $fechas = consulta($conexion,sql);
+        $fechas = @consulta($conexion,sql,$diaSemana);
+        //print_r($fechas);
         
         //$i es la posicion que empieza en el calendario (casilla)
         for($i=1;$i<=42;$i++){
             
+            
             //almacenamos 0 si no hay eventos
-                $diaini[$i-1] = 0;
-                $diafin[$i-1] = 0;
+            $diaini[$i-1] = 0;
+            $diafin[$i-1] = 0;
                 
-                
- 
             if($i>=$diaSemana && $i<$last_cell){
                         
                 //calculamos la posicion actual en la que empieza el evento
                 $posicionActual = ($diaSemana+($i-1)-2);
                 
                 //almacenamos eventos si estamos en el mismo mes
-                if(($day>=intval(date_format(
+                if(isset($fechas[$m]["nombre"]) && ($day>=intval(date_format(
                         new DateTime($fechas[$m]["fecha_ini"]),'d'))
                         &&
                         ($day<=intval(date_format(
@@ -85,7 +94,7 @@ and open the template in the editor.
                     $diaini[$i-1] = intval(date_format(new DateTime($fechas[$m]["fecha_ini"]),'d'));
                     $diafin[$i-1] = intval(date_format(new DateTime($fechas[$m]["fecha_fin"]),'d'));
                     
-                    //alamaceno la posicion final del evento
+                    //almaceno la posicion final del evento
                     $ultimoDia = ($posicionActual+($diafin[$i-1]-$diaini[$i-1]));
                 
                     //para que no se vaya de rango contamos elementos del array
@@ -97,36 +106,24 @@ and open the template in the editor.
                 
                 
                 //si esta en un rango de dias lo señalo en color en el calendario
-                if(($diaini!=0) && (isset($ultimoDia)) &&
-                        ($i>=$posicionActual) && ($i<=$ultimoDia)){
+                if(isset($fechas[$i-1]["nombre"])){
        
- 
-                    $html.="<td id='$day' style='background:".$colores[$indiceColor]."'>$day</td>";
+
+                    $html.="<td id='$day' style='background:".$colores[0]."'>$day</td>";
 
                     //incrustamos un div donde va la información del evento
                     $htmleventos .= "<div style='display:none;' id='evento$day'>"
-                    . "<h7>".$fechas[$k]["nombre"]."</h7>"
-                    . ""
-                    . ""
-                    . ""
-                    . ""
-                    . ""
+                    . "<h7>".$fechas[$i-1]["nombre"]."</h7></br>"
+                    . $fechas[$i-1]["fecha_ini"]."</br>"
+                    . $fechas[$i-1]["fecha_fin"]."</br>"
                     . "</div>";
+                 
                     
-                    //para que no se vaya de rango contamos elementos del array
-                    if($k<count($fechas)-1){
-                        $k++;
-                    }
+                    
                 }
                 else{
                     $html.="<td id='$day'>$day</td>";
-                    
-                    //indice de los colores
-                    $indiceColor++;
-                    
-                    //si es mayor empiezo de nuevo
-                    if($indiceColor>count($colores)-1)
-                        $indiceColor = 0;
+
                 }
                 
                 $day++;
@@ -144,6 +141,7 @@ and open the template in the editor.
             //incrustamos la tabla
             if($i==42)
                 $html .= "</table>";
+  
  
         }
    
