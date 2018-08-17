@@ -6,6 +6,7 @@
 
 contrario = true;
 
+
 /**
  * 
  * @param {type} i
@@ -20,10 +21,12 @@ function mensajedeevento(i){
         div = document.getElementById("evento"+i);
         
         div.style.display = "none";
+        
 
-        if(contrario)
+        if(contrario){
           div.style.display = "block";
-     
+        }
+        
     }
     catch(err) {
 
@@ -38,8 +41,10 @@ $(document).ready(function(){
     //tope de dias
     dimension = 31;
     
+    
+    
     for(i=1;i<=dimension;i++){
-        
+   
         //ocultamos todos los eventos
         $("#evento"+i).css("display","none");
         

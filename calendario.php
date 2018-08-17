@@ -112,14 +112,13 @@ Hecho por Fernando Mangas
                     $html.="<td id='$day' style='background:".$colores[0]."'>$day</td>";
 
                     //incrustamos un div donde va la información del evento
-                    $htmleventos .= "<div style='display:none;' id='evento$day'>"
-                    . "<h7>".$fechas[$i-1]["nombre"]."</h7></br>"
-                    . $fechas[$i-1]["fecha_ini"]."</br>"
-                    . $fechas[$i-1]["fecha_fin"]."</br>"
+                    $htmleventos .= "<div class='fixed' style='display:none;' id='evento$day'>"
+                    . "<h7>Nombre del evento: ".$fechas[$i-1]["nombre"]."</h7></br>"
+                    . "<h9>Comienza: </h9>".$fechas[$i-1]["fecha_ini"]."</br>"
+                    . "<h9>Termina: </h9>".$fechas[$i-1]["fecha_fin"]."</br>"
+                    . "<h9>Descripción: </h9>".$fechas[$i-1]["descripcion"]."</br>"
                     . "</div>";
-                 
-                    
-                    
+      
                 }
                 else{
                     $html.="<td id='$day'>$day</td>";

@@ -1155,6 +1155,7 @@ form.search-form input[type="search"] {
 
 .calendar_wrap table td {
 	border: 1px solid #eee;
+        color: #fff;
 }
 .calendar_wrap table tbody {
     background-color: #fff;
@@ -6865,6 +6866,10 @@ div#calendar-9 {
 
 @media screen and (max-width: 767px){
     
+    .fixed{
+        width: 88% !important;
+    }    
+    
 .entry-content svg{
     margin-top: -113px !important;
 }
@@ -6886,4 +6891,23 @@ div#calendar-9 {
 #content {
     margin-top: -31%;
 }
+}
+
+/*Div flotante*/
+.fixed {
+    /* position: relative; */
+    /* top: 20px; */
+    /* left: 20px; */
+    margin: 0 auto;
+    width: 40%;
+    border: 1px solid #afafaf;
+    /* padding: 5px; */
+    /* z-index: 100; */
+    background-color: #eee;
+    display: none;
+    padding: 14px;
+}
+
+td{
+    cursor:pointer; cursor: hand
 }
